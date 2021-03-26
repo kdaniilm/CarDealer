@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using BLL.Dto;
 using BLL.Infrastructure.Provider;
 using Core.Context;
 using Domain.Model;
@@ -20,8 +22,12 @@ namespace BLL.Infrastructure
             collection.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<CarContext>().AddDefaultTokenProviders().AddTokenProvider<EmailConfirmationTokenProvider<User>>("emailconfirmation");
 
-
-
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MapperConfig());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            collection.AddSingleton(mapper);
         }
     }
 }

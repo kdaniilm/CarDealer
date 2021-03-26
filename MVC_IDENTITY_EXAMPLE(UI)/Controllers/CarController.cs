@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using BLL;
 using Domain.Model;
 using Microsoft.AspNetCore.Authorization;
+using BLL.Service;
+using BLL.Dto;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {
@@ -22,11 +24,10 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         }
         public ActionResult Index()
         {
-            //return View(_bookService.GetBooks());
-            var cars = new List<Car>();
+            var cars = new List<CarDto>();
             for (int i = 0; i < 10; i++)
             {
-                cars.Add(new Car()
+                cars.Add(new CarDto()
                 {
                     ImagePathes = new List<ImagePath> { new ImagePath() { ImgPath = "asd" } },
                     Model = new CarModel() { Brend = new CarBrend() { BrendName = "Nissan" }, ModelName = "Juke" },
@@ -38,16 +39,17 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             return View(cars);
         }
 
-        [AutoValidateAntiforgeryToken]
+        
+        [HttpGet]
+        public async Task<ActionResult> Create() => await Task.Run(() => View());
+
         [HttpPost]
-        public ActionResult Create(Book book)
+        [AutoValidateAntiforgeryToken]
+        public async Task<ActionResult> Create(CarDto car)
         {
-            //_bookService.Add(book);
+            await _carService.AddCarAsync(car);
             return RedirectToAction(nameof(Index));
         }
-
-        public ActionResult Create() => View();
-
 
     }
 }

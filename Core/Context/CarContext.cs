@@ -15,7 +15,6 @@ namespace Core.Context
         {
             Database.EnsureCreated();
         }
-        public DbSet<Book> Books { get; set; }
         public DbSet<ImagePath> ImagePaths { get; set; }
         public DbSet<BaseConfiguration> BaseConfigurations { get; set; }
         public DbSet<BoostType> BoostTypes { get; set; }
