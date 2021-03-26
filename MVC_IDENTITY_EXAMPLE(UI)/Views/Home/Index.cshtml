@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Domain.Model.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="com-md-6">
+        <form>
+            <div class="col-md-5">
+                <div class="row text-center">
+                    <button>All</button>
+                    <button>New</button>
+                    <button>Used</button>
+                </div>
+                <div class="row">
+                    <select name="CarBodyType">
+                        <option value="All">All</option>
+                        <option value="Body1">Body1</option>
+                        <option value="Body2">Body2</option>
+                    </select>
+                    <select name="CarBrend">
+                        <option value="All">All</option>
+                        <option value="Brend1">Brend1</option>
+                        <option value="Brend2">Brend2</option>
+                    </select>
+                    <select name="CarModel">
+                        <option value="All">All</option>
+                        <option value="Model1">Model1</option>
+                        <option value="Model2">Model2</option>
+                    </select>
+                    <input type="button" value="BiggestSearch" />
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <div class="row">
+                    <select name="StartYear">
+                        <option value="All">All</option>
+                        <option value="Year1">Year1</option>
+                        <option value="Year2">Year2</option>
+                    </select>
+                    <select name="EndYear">
+                        <option value="All">All</option>
+                        <option value="Year1">Year1</option>
+                        <option value="Year2">Year2</option>
+                    </select>
+                    <input type="button" value="Search" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>

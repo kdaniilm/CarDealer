@@ -1,0 +1,17 @@
+﻿@model List<Domain.Model.Car>
+
+    <div class="row">
+        @foreach (var car in Model)
+        {
+            <div class="col-md-3">
+                <img src="@car.ImagePathes.First()" />
+                <h2>@car.Model.Brend.BrendName @car.Model.ModelName</h2>
+                <h3>Price: @car.CarPrice $</h3>
+                <h4>Range: @car.RunRange</h4>
+                <p>Fuel: @car.Base.Engine.Petrol.Type</p>
+                <p>Emgine: @car.Base.Engine.Volume</p>
+                <p>Gear Box: @car.Base.GearBoxType</p>
+                <p>Driverian: @car.Base.DriverianType</p>
+            </div>
+        }
+    </div>
