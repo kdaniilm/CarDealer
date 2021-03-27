@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Dto;
+using BLL.Service;
 using BLL.Service.Interfaces;
 using Core.Context;
 using Domain.Model;

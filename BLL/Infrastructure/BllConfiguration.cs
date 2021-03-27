@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using BLL.Dto;
+using BLL.Service;
 using BLL.Infrastructure.Provider;
 using Core.Context;
 using Domain.Model;
