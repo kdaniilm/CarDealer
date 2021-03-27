@@ -15,7 +15,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public int RunRange { get; set; }
         [Required(ErrorMessage = "Select car model")]
         public CarModel Model { get; set; }
-        public IList<ImagePath> ImagePathes { get; set; }
+        public IList<ImagePath> ImagePathes { get; set; } 
         public IList<ComfortConfiguration> ComfortList { get; set; }
         public IList<StateConfiguration> StateList { get; set; }
         public IList<MultiMediaConfiguration> MultiMediaList { get; set; }
@@ -25,3 +25,16 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public IList<Comment> Comments { get; set; }
     }
 }
+/*
+ *bool IsNew
+ *double CarPrice
+ *int RunRange
+ *select Brand
+ *select Model
+ *string ImagePathes
+ *checkbox ComfortList
+ *checkbox StateList
+ *checkbox MultiMediaList
+ *checkbox SaveList
+ *select Base
+ */

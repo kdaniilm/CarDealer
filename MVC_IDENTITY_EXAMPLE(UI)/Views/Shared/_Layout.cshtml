@@ -1,17 +1,180 @@
 ﻿<!DOCTYPE html>
+<style>
+        /*custom font*/
+        /*#D3C8F5*/
+
+        /*basic reset*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+          
+        }
+
+        body {
+            font-family: montserrat, arial, verdana;
+        }
+        /*form styles*/
+        #msform {
+            width: 400px;
+            margin: 50px auto;
+            text-align: center;
+            position: relative;
+        }
+
+            #msform fieldset {
+                background: #D3C8F5;
+                border: 0 none;
+                border-radius: 3px;
+                box-shadow: 0 0 15px 1px rgba(22, 12, 50, 0.9);
+                padding: 20px 30px;
+                box-sizing: border-box;
+                width: 80%;
+                margin: 0 10%;
+                /*stacking fieldsets above each other*/
+                position: relative;
+            }
+                /*Hide all except first fieldset*/
+                #msform fieldset:not(:first-of-type) {
+                    display: none;
+                }
+            /*inputs*/
+            #msform input, #msform textarea {
+                padding: 15px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                width: 100%;
+                box-sizing: border-box;
+                font-family: montserrat;
+                color: #2C3E50;
+                font-size: 13px;
+            }
+            /*buttons*/
+            #msform .action-button {
+                width: 100px;
+                background: #239B7D;
+                font-weight: bold;
+                color: white;
+                border: 0 none;
+                border-radius: 1px;
+                cursor: pointer;
+                padding: 10px 5px;
+                margin: 10px 5px;
+            }
+
+                #msform .action-button:hover, #msform .action-button:focus {
+                    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+                }
+        /*headings*/
+        .fs-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .fs-subtitle {
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            /*CSS counters to number the steps*/
+            counter-reset: step;
+        }
+        a
+        {
+            color:white;
+        }
+    li {
+        color: white;
+    }
+
+            #progressbar li {
+                list-style-type: none;
+                color: #D3C8F5; /**/
+                text-transform: uppercase;
+                font-size: 9px;
+                width: 33.33%;
+                float: left;
+                position: relative;
+            }
+
+                #progressbar li:before {
+                    content: counter(step);
+                    counter-increment: step;
+                    width: 20px;
+                    line-height: 20px;
+                    display: block;
+                    font-size: 10px;
+                    color: #333;
+                    background: #D3C8F5;
+                    border-radius: 3px;
+                    margin: 0 auto 5px auto;
+                }
+                /*progressbar connectors*/
+                #progressbar li:after {
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background: #D3C8F5;
+                    position: absolute;
+                    left: -50%;
+                    top: 9px;
+                    z-index: -1; /*put it behind the numbers*/
+                }
+
+                #progressbar li:first-child:after {
+                    /*connector not needed before the first step*/
+                    content: none;
+                }
+                /*marking active/completed steps green*/
+                /*The number of the step and the connector before it = green*/
+                #progressbar li.active:before, #progressbar li.active:after {
+                    background: #239B7D;
+                    color: white;
+                }
+
+
+        /*
+    #239B7D
+    #D3C8F5
+    */
+        /*
+    #160C32  RGB(22, 12, 50)
+    #241455  RGB(36, 20, 85)
+    #331C78  RGB(51, 28, 120)
+    #41239B  RGB(65, 35, 155)
+    #4F2ABF  RGB(79, 42, 191)
+    #633DD6  RGB(99, 61, 214)
+
+    */
+
+
+
+</style>
 <html lang="en">
-<head>
+
+<head >
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MVC_IDENTITY_EXAMPLE_UI_</title>
+    <title>@ViewData["Title"] - Car Store navigation</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+<body style="	background: linear-gradient(rgba(22, 12, 50, 0.9), rgba(65, 35, 155, 0.9))">
+    <header style="        background: linear-gradient(rgba(36, 20, 85, 1), rgba(22, 12, 50, 1));
+        color: blue">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVC_IDENTITY_EXAMPLE_UI_</a>
+                  <a style="color: #239B7D" style="color: #239B7D" style="color: #239B7D" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Car Store navigation</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,24 +182,24 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                             <a style="color: #239B7D" style="color:white" class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                             <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                 <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark"  asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                  <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                  <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                             </li>
                         }
                     </ul>
@@ -50,11 +213,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - MVC_IDENTITY_EXAMPLE_UI_ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
