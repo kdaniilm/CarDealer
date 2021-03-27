@@ -4,148 +4,150 @@
     ViewData["Title"] = "Create your account";
 }
 <style>
-    /*custom font*/
+      *, *:before, *:after {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+      }
 
-/*#D3C8F5*/
+      html {
+      }
 
-/*basic reset*/
-* {margin: 0; padding: 0;}
+      body {
+          font-family: 'Nunito', sans-serif;
+          color: #384047;
+      }
 
-html {
-	
-}
+      form {
+          /*max-width: 300px;
+    margin: 4% auto;
+    padding: 10px 20px;
+    background: #D3C8F5;
+    border-radius: 8px;*/
+      }
 
-body {
-	font-family: montserrat, arial, verdana;
-}
-/*form styles*/
-#msform {
-	width: 400px;
-	margin: 50px auto;
-	text-align: center;
-	position: relative;
-}
-#msform fieldset {
-	background: #D3C8F5;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(22, 12, 50, 0.9);
-	padding: 20px 30px;
-	box-sizing: border-box;
-	width: 80%;
-	margin: 0 10%;
+      h1 {
+          margin: 0 0 5% 0;
+          text-align: center;
+      }
 
-	/*stacking fieldsets above each other*/
-	position: relative;
-}
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-	display: none;
-}
-/*inputs*/
-#msform input, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
-}
-/*buttons*/
-#msform .action-button {
-	width: 100px;
-	background: #239B7D;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
-}
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-}
-/*headings*/
-.fs-title {
-	font-size: 15px;
-	text-transform: uppercase;
-	color: #2C3E50;
-	margin-bottom: 10px;
-}
-.fs-subtitle {
-	font-weight: normal;
-	font-size: 13px;
-	color: #666;
-	margin-bottom: 20px;
-}
-/*progressbar*/
-#progressbar {
-	margin-bottom: 30px;
-	overflow: hidden;
-	/*CSS counters to number the steps*/
-	counter-reset: step;
-}
-#progressbar li {
-	list-style-type: none;
-	color: #D3C8F5;/**/
-	text-transform: uppercase;
-	font-size: 9px;
-	width: 33.33%;
-	float: left;
-	position: relative;
-}
-#progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #333;
-	background: #D3C8F5;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
-}
-/*progressbar connectors*/
-#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: #D3C8F5;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
-}
-#progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	content: none;
-}
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-	background: #239B7D;
-	color: white;
-}
+      h3 {
+          margin: 2% 0 4% 0;
+          text-align: center;
+      }
+
+      h4 {
+          margin: 4% 0 2% 0;
+          text-align: left;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="date"],
+      input[type="datetime"],
+      input[type="email"],
+      input[type="number"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="time"],
+      input[type="url"],
+      textarea,
+      select {
+          background: rgba(255,255,255,0.1);
+          border: none;
+          font-size: 16px;
+          height: auto;
+          margin: 0;
+          outline: 0;
+          padding: 15px;
+          width: 100%;
+          background-color: #e8eeef;
+          color: #160C32;
+          box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset;
+          margin-bottom: 3%;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+          margin: 0 1% 1% 0;
+      }
+
+      select {
+          padding: 6px;
+          height: 32px;
+          border-radius: 2px;
+      }
+
+      button {
+          padding: 19px 39px 18px 39px;
+          color: #FFF;
+          background-color: #239B7D;
+          font-size: 18px;
+          text-align: center;
+          font-style: normal;
+          border-radius: 5px;
+          width: 100%;
+          border: 1px solid #331C78;
+          border-width: 1px 1px 3px;
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+          margin-bottom: 5%;
+      }
+
+      fieldset {
+          margin-bottom: 3%;
+          border: none;
+      }
+
+      legend {
+          font-size: 1.4em;
+          margin-bottom: 4%;
+      }
+
+      label {
+          display: block;
+          margin-bottom: 2%;
+      }
+
+          label.light {
+              font-weight: 300;
+              display: inline;
+          }
+
+      .number {
+          background-color: #239B7D;
+          color: #fff;
+          height: 30px;
+          width: 30px;
+          display: inline-block;
+          font-size: 0.8em;
+          margin-right: 4px;
+          line-height: 30px;
+          text-align: center;
+          text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+          border-radius: 100%;
+      }
 
 
-/*
-#239B7D
-#D3C8F5
-*/
-/*
-#160C32  RGB(22, 12, 50)
-#241455  RGB(36, 20, 85)
-#331C78  RGB(51, 28, 120)
-#41239B  RGB(65, 35, 155)
-#4F2ABF  RGB(79, 42, 191)
-#633DD6  RGB(99, 61, 214)
+      form {
+          max-width: 480px;
+      }
 
-*/
+      }
+
+
+      /*
+      #239B7D
+      #D3C8F5
+      */
+      /*
+      #160C32  RGB(22, 12, 50)
+      #241455  RGB(36, 20, 85)
+      #331C78  RGB(51, 28, 120)
+      #41239B  RGB(65, 35, 155)
+      #4F2ABF  RGB(79, 42, 191)
+      #633DD6  RGB(99, 61, 214)
+
+      */
 
 
 
@@ -163,45 +165,10 @@ body {
         <span asp-validation-for="Password" class="text-danger"></span>
         <input asp-for="City" class="form-control" placeholder="City" />
         <span asp-validation-for="City" class="text-danger"></span>
-        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+        <input type="submit" name="submit" class="submit action-button" value="CREATE" />
     </fieldset>
 </form>
 
-@*<h1>Register</h1>
-
-<h4>RegisterViewModel</h4>
-<hr />
-<div class="row">
-    <input asp-for="City" class="form-control" />
-    <span asp-validation-for="City" class="text-danger"></span>
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -3,62 +3,233 @@
 @{
     ViewData["Title"] = "Create";
 }
+<style>
+    *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-<h1>Create</h1>
+html {
 
-<h4>CarDto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsNew" /> @Html.DisplayNameFor(model => model.IsNew)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="CarPrice" class="control-label"></label>
-                <input asp-for="CarPrice" class="form-control" />
-                <span asp-validation-for="CarPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RunRange" class="control-label"></label>
-                <input asp-for="RunRange" class="form-control" />
-                <span asp-validation-for="RunRange" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <b>Check on multi media configuration</b>
-            </div>
-            <div class="form-group">
-                <b>Check on comfort configuration</b>
-                @*@foreach (var comfort in Model.ComfortList)
-        {
-            <input type="checkbox" name="ComfortList" value="@comfort.ConfigName" />
-        }*@
-           
-            </div>
-            <div class="form-group">
-                <b>Check on multi media configuration</b>
-                @*@foreach (var multiMedia in Model.MultiMediaList)
-        {
-            <input type="checkbox" name="MultiMediaList" value="@multiMedia.ConfigName" />
-        }*@
-               
-            </div>
-            <div class="form-group">
-                <input type="hidden" asp-for="Id" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+	/*Image only BG fallback*/
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+	/*background = gradient + image pattern combo*/
+
+
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 300px;
+  margin: 4% auto;
+  padding: 10px 20px;
+  background: #D3C8F5;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 5% 0;
+  text-align: center;
+}
+h3 {
+  margin: 2% 0 4% 0;
+  text-align: center;
+}
+h4 {
+  margin: 4% 0 2% 0;
+  text-align: left;
+}
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #160C32 ;
+  box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset;
+  margin-bottom: 3%;
+}
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-top: 2.5%;
+        margin-left: 2.5%;
+        transform: scale(2);
+        opacity: 0.9;
+        cursor: pointer;
+
+    }
+/*        input[type="checkbox"]:checked {
+            background: radial-gradient(rgba(36, 20, 85, 1), rgba(22, 12, 50, 1));
+        }*/
+        input[type="radio"]:checked,
+        input[type="checkbox"]:checked {
+            transform: scale(2.5);
+         
+        }
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #239B7D;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #331C78 ;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 5%;
+}
+
+fieldset {
+  margin-bottom: 3%;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 4%;
+}
+
+label {
+  display: block;
+  margin-bottom: 2%;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #239B7D;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+  form {
+    max-width: 480px;
+  }
+
+    label {
+        font-size: 20px;
+        margin-left: 4%;
+        font-weight: 200;
+    }
+
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Car</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <form action="index.html" method="post">
+
+        <h1>Create Car</h1>
+
+        <fieldset>
+            <legend><span class="number">1</span>Basic info</legend>
+
+            <input type="number" name="CarPrice" placeholder="Car Price" />
+            <input type="number" name="RunRange" placeholder="Run Range" />
+
+            <input type="checkbox" value="IsNew" name="IsNew"><label   class="light">New Car</label><br>
+
+
+
+            <h4>Brand/Model:</h4>
+            <select id="model" name="model">
+                <optgroup label="Mercedec">
+                    <option value="Mmodel 1">model 1</option>
+                    <option value="Mmodel 2">model 2</option>
+                    <option value="Mmodel 3">model 3</option>
+                </optgroup>
+                <optgroup label="Suzuki">
+                    <option value="Smodel 1">model 1</option>
+                    <option value="Smodel 2">model 2</option>
+                    <option value="Smodel 3">model 3</option>
+                </optgroup>
+                <optgroup label="Hundai">
+                    <option value="Hmodel 1">model 1</option>
+                    <option value="Hmodel 2">model 2</option>
+                    <option value="Hmodel 3">model 3</option>
+                </optgroup>
+                <optgroup label="Lada">
+                    <option value="Lmodel 1">model 1</option>
+                    <option value="Lmodel 2">model 2</option>
+                    <option value="Lmodel 3">model 3</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><span class="number">2</span>Configuration</legend>
+            <h3>Example 1</h3>
+            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
+            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
+            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
+            <h3>Example 2</h3>
+            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
+            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
+            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
+            <h3>Example 3</h3>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
+            <h3>Example 4</h3>
+            <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
+
+            <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
+
+
+        </fieldset>
+        <button type="submit">+ADD</button>
+    </form>
+
+</body>
+</html>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
