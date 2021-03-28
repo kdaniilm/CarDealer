@@ -9,6 +9,8 @@ using Domain.Model;
 using Microsoft.AspNetCore.Authorization;
 using BLL.Service;
 using BLL.Dto;
+using MVC_IDENTITY_EXAMPLE_UI_.Models;
+using AutoMapper;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {
@@ -17,25 +19,16 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
     {
         // GET: BookController
         private readonly CarService _carService;
+        private readonly IMapper _mapper;
 
-        public CarController(CarService carService)
+        public CarController(CarService carService, IMapper mapper)
         {
             this._carService = carService;
+            this._mapper = mapper;
         }
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var cars = new List<CarDto>();
-            for (int i = 0; i < 10; i++)
-            {
-                cars.Add(new CarDto()
-                {
-                    ImagePathes = new List<ImagePath> { new ImagePath() { ImgPath = "asd" } },
-                    Model = new CarModel() { Brend = new CarBrend() { BrendName = "Nissan" }, ModelName = "Juke" },
-                    CarPrice = 2000,
-                    RunRange = 100000,
-                    Base = new BaseConfiguration() { Engine = new Engine() { Petrol = new PetrolType() { Type = "Petrol" }, Volume = 1593 }, GearBoxType = "Manual", DriverianType = "FWD" }
-                });
-            }
+            var cars = await _carService.GetAllCarsAsync();
             return View(cars);
         }
 
@@ -45,9 +38,13 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<ActionResult> Create(CarDto car)
+        public async Task<ActionResult> Create(CarViewModel car)
         {
-            await _carService.AddCarAsync(car);
+            var carDto = _mapper.Map<CarDto>(car);
+            if (ModelState.IsValid)
+            {
+                await _carService.AddCarAsync(carDto);
+            }
             return RedirectToAction(nameof(Index));
         }
 

@@ -24,16 +24,101 @@ namespace BLL.Service
             this._mapper = mapper;
         }
 
-        public Task AddCarAsync(CarDto carDto)
+        public async Task AddCarAsync(CarDto carDto)
         {
-            throw new NotImplementedException();
+            var createCountry = new CreateCountry() { CountryName = "Japan" };
+
+            var carBrend = new CarBrend() { CreateCountry = createCountry, BrendName = carDto.BrendName };
+
+            var carModel = new CarModel() { Brend = carBrend, ModelName = carDto.ModelName};
+
+            var imgPathes = new List<ImagePath>();
+            foreach(var img in carDto.ImagePathes)
+            {
+                imgPathes.Add(new ImagePath() { ImgPath = img});
+            }
+
+            var comfortConfig = new List<ComfortConfiguration>();
+            foreach(var comfortItem in carDto.ComfortConfigName)
+            {
+                comfortConfig.Add(new ComfortConfiguration() { ConfigName = comfortItem});
+            }
+
+            var stateConfig = new List<StateConfiguration>();
+            foreach (var stateItem in carDto.StateConfigName)
+            {
+                stateConfig.Add(new StateConfiguration() { ConfigName = stateItem });
+            }
+
+            var multiMediaConfig = new List<MultiMediaConfiguration>();
+            foreach (var multiMediaItem in carDto.MultiMediaConfigName)
+            {
+                multiMediaConfig.Add(new MultiMediaConfiguration() { ConfigName = multiMediaItem });
+            }
+
+            var saveConfig = new List<SaveConfiguration>();
+            foreach (var saveItem in carDto.SaveConfigName)
+            {
+                saveConfig.Add(new SaveConfiguration() { ConfigName = saveItem });
+            }
+
+            var boost = new BoostType() { Type = carDto.Boost };
+
+            var engineCharacteristics = new EngineCharacteristics()
+            {
+                MaxPower = carDto.MaxPower,
+                MaxTorque = carDto.MaxTorque,
+                MaxRpm = carDto.MaxRpm,
+                MaxPowerRpm = carDto.MaxPowerRpm,
+                MaxTorqueRpm = carDto.MaxTorqueRpm,
+                CityСonsumption = carDto.CityСonsumption,
+                AutobanСonsumption = carDto.AutobanСonsumption,
+                MidleСonsumption = carDto.MidleСonsumption,
+                Boost = boost
+            };
+
+            var petrol = new PetrolType() { Type = carDto.PetrolType };
+
+            var engine = new Engine()
+            {
+                Volume = carDto.Volume,
+                CylinderCount = carDto.CylinderCount,
+                Petrol = petrol,
+                Characteristics = engineCharacteristics
+            };
+
+            var baseConfig = new BaseConfiguration()
+            {
+                GearBoxType = carDto.GearBoxType,
+                GearCount = carDto.GearCount,
+                DriverianType = carDto.DriverianType,
+                DoorsCount = carDto.DoorsCount,
+                BodyType = carDto.BodyType,
+                Engine = engine
+            };
+            var car = new Car()
+            {
+                IsNew = carDto.IsNew,
+                CarPrice = carDto.CarPrice,
+                RunRange = carDto.RunRange,
+                Model = carModel,
+                ImagePathes = imgPathes,
+                ComfortList = comfortConfig,
+                StateList = stateConfig,
+                MultiMediaList = multiMediaConfig,
+                SaveList = saveConfig,
+                Base = baseConfig,
+                Comments = null
+            };
+
+            await _carContext.Cars.AddAsync(car);
+            await _carContext.SaveChangesAsync();
         }
 
-        public async Task<List<CarDto>> GetAllCarsAsync()
+        public async Task<List<Car>> GetAllCarsAsync()
         {
             var cars = await _carContext.Cars.ToListAsync();
-            var carsDto = _mapper.Map<List<CarDto>>(cars);
-            return carsDto;
+            return cars;
         }
 
         public async Task<CarDto> GetCarAsync(int Id)

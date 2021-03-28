@@ -1,10 +1,10 @@
-﻿@model List<BLL.Dto.CarDto>
+﻿@model List<Domain.Model.Car>
 
     <div class="row">
         @foreach (var car in Model)
         {
             <div class="col-md-3">
-                <img src="@car.ImagePathes.First()" />
+                <img src="asd" @*@car.ImagePathes.First()*@ />
                 <h2>@car.Model.Brend.BrendName @car.Model.ModelName</h2>
                 <h3>Price: @car.CarPrice $</h3>
                 <h4>Range: @car.RunRange</h4>

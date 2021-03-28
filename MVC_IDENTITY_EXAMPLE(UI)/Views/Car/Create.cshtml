@@ -1,4 +1,4 @@
-﻿@model BLL.Dto.CarDto
+﻿@model CarViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -178,29 +178,26 @@ label.light {
             <input type="checkbox" value="IsNew" name="IsNew"><label   class="light">New Car</label><br>
 
 
-
-            <h4>Brand/Model:</h4>
-            <select id="model" name="model">
-                <optgroup label="Mercedec">
-                    <option value="Mmodel 1">model 1</option>
-                    <option value="Mmodel 2">model 2</option>
-                    <option value="Mmodel 3">model 3</option>
-                </optgroup>
-                <optgroup label="Suzuki">
-                    <option value="Smodel 1">model 1</option>
-                    <option value="Smodel 2">model 2</option>
-                    <option value="Smodel 3">model 3</option>
-                </optgroup>
-                <optgroup label="Hundai">
-                    <option value="Hmodel 1">model 1</option>
-                    <option value="Hmodel 2">model 2</option>
-                    <option value="Hmodel 3">model 3</option>
-                </optgroup>
-                <optgroup label="Lada">
-                    <option value="Lmodel 1">model 1</option>
-                    <option value="Lmodel 2">model 2</option>
-                    <option value="Lmodel 3">model 3</option>
-                 </optgroup>
+            <h4>Brend:</h4>
+            <select id="brend" name="BrendName">
+                <option value="Brend 1">model 1</option>
+                <option value="Brend 2">model 2</option>
+                <option value="Brend 3">model 3</option>
+            </select>
+            <h4>Model:</h4>
+            <select id="model" name="ModelName">
+                <option value="Mmodel 1">model 1</option>
+                <option value="Mmodel 2">model 2</option>
+                <option value="Mmodel 3">model 3</option>
+                <option value="Smodel 1">model 1</option>
+                <option value="Smodel 2">model 2</option>
+                <option value="Smodel 3">model 3</option>
+                <option value="Hmodel 1">model 1</option>
+                <option value="Hmodel 2">model 2</option>
+                <option value="Hmodel 3">model 3</option>
+                <option value="Lmodel 1">model 1</option>
+                <option value="Lmodel 2">model 2</option>
+                <option value="Lmodel 3">model 3</option>
             </select>
 
         </fieldset>
@@ -209,22 +206,22 @@ label.light {
             <legend><span class="number">2</span>Configuration</legend>
             <h3>Transmistion</h3>
             <select id="GearBox" name="GearBoxType">
-                <option value="GearBoxType">Gb 1</option>
-                <option value="GearBoxType">Gb 2</option>
-                <option value="GearBoxType">Gb 3</option>
+                <option value="Gb 1">Gb 1</option>
+                <option value="Gb 2">Gb 2</option>
+                <option value="Gb 3">Gb 3</option>
             </select>
             <input type="number" name="GearCount" placeholder="Gear count" />
             <select id="GearBox" name="DriverianType">
-                <option value="DriverianType">Dv 1</option>
-                <option value="DriverianType">Dv 2</option>
-                <option value="DriverianType">Dv 3</option>
+                <option value="Dv 1">Dv 1</option>
+                <option value="Dv 2">Dv 2</option>
+                <option value="Dv 3">Dv 3</option>
             </select>
 
             <h3>Body</h3>
             <select id="GearBox" name="BodyType">
-                <option value="BodyType">Body 1</option>
-                <option value="BodyType">Body 2</option>
-                <option value="BodyType">Body 3</option>
+                <option value="Body 1">Body 1</option>
+                <option value="Body 2">Body 2</option>
+                <option value="Body 3">Body 3</option>
             </select>
             <input type="number" name="DoorsCount" placeholder="Doors count" />
 
@@ -232,9 +229,9 @@ label.light {
             <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
             <input type="number" name="CylinderCount" placeholder="Cylinder count" />
             <select id="Petrol" name="PetrolType">
-                <option value="PetrolType">Petrol 1</option>
-                <option value="PetrolType">Petrol 2</option>
-                <option value="PetrolType">Petrol 3</option>
+                <option value="Petrol 1">Petrol 1</option>
+                <option value="Petrol 2">Petrol 2</option>
+                <option value="Petrol 3">Petrol 3</option>
             </select>
             <input type="number" name="MaxPower" placeholder="maxPower" />
             <input type="number" name="MaxTorque" placeholder="MaxTorque" />
@@ -244,30 +241,30 @@ label.light {
             <input type="number" name="CityСonsumption" placeholder="City Сonsumption" />
             <input type="number" name="AutobanСonsumption" placeholder="Autoban Сonsumption" />
             <input type="number" name="MidleСonsumption" placeholder="Midle Сonsumption" />
-            <select id="Boost" name="BoostType">
-                <option value="BoostType">Boost 1</option>
-                <option value="BoostType">Boost 2</option>
-                <option value="BoostType">Boost 3</option>
+            <select id="Boost" name="Boost">
+                <option value="Boost 1">Boost 1</option>
+                <option value="Boost 2">Boost 2</option>
+                <option value="Boost 3">Boost 3</option>
             </select>
 
 
 
 
             <h3>Comfort</h3>
-            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
-            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
-            <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
+            <input type="checkbox" id="ComfortList" value="ComfortList 1" name="ComfortConfigName"><label class="light" for="development">ComfortList</label><br>
+            <input type="checkbox" id="ComfortList" value="ComfortList 2" name="ComfortConfigName"><label class="light" for="development">ComfortList</label><br>
+            <input type="checkbox" id="ComfortList" value="ComfortList 3" name="ComfortConfigName"><label class="light" for="development">ComfortList</label><br>
             <h3>State</h3>
-            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
-            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
-            <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
+            <input type="checkbox" id="StateList" value="StateList 1" name="StateConfigName"><label class="light" for="design">StateList</label><br>
+            <input type="checkbox" id="StateList" value="StateList 2" name="StateConfigName"><label class="light" for="design">StateList</label><br>
+            <input type="checkbox" id="StateList" value="StateList 3" name="StateConfigName"><label class="light" for="design">StateList</label><br>
             <h3>Mupti media</h3>
-            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
-            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
-            <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList 1" name="MultiMediaConfigName"><label class="light" for="business">MultiMediaList</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList 2" name="MultiMediaConfigName"><label class="light" for="business">MultiMediaList</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MultiMediaList 3" name="MultiMediaConfigName"><label class="light" for="business">MultiMediaList</label><br>
             <h3>Save</h3>
-            <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
-            <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
+            <input type="checkbox" id="SaveList" value="SaveList 1" name="SaveConfigName"><label class="light" for="design">SaveList</label><br>
+            <input type="checkbox" id="SaveList" value="SaveList 2" name="SaveConfigName"><label class="light" for="design">SaveList</label><br>
         </fieldset>
         <button type="submit">+ADD</button>
     }
