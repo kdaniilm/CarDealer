@@ -155,7 +155,7 @@ label.light {
 
 </style>
 
-<head>
+@*<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Car</title>
@@ -163,11 +163,11 @@ label.light {
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body>*@
 
-    <form action="index.html" method="post">
-
-        <h1>Create Car</h1>
+    @using (Html.BeginForm("Create", "Car", FormMethod.Post))
+    {
+        <h1> Create Car</h1>
 
         <fieldset>
             <legend><span class="number">1</span>Basic info</legend>
@@ -200,36 +200,78 @@ label.light {
                     <option value="Lmodel 1">model 1</option>
                     <option value="Lmodel 2">model 2</option>
                     <option value="Lmodel 3">model 3</option>
+                 </optgroup>
             </select>
 
         </fieldset>
 
         <fieldset>
             <legend><span class="number">2</span>Configuration</legend>
-            <h3>Example 1</h3>
+            <h3>Transmistion</h3>
+            <select id="GearBox" name="GearBoxType">
+                <option value="GearBoxType">Gb 1</option>
+                <option value="GearBoxType">Gb 2</option>
+                <option value="GearBoxType">Gb 3</option>
+            </select>
+            <input type="number" name="GearCount" placeholder="Gear count" />
+            <select id="GearBox" name="DriverianType">
+                <option value="DriverianType">Dv 1</option>
+                <option value="DriverianType">Dv 2</option>
+                <option value="DriverianType">Dv 3</option>
+            </select>
+
+            <h3>Body</h3>
+            <select id="GearBox" name="BodyType">
+                <option value="BodyType">Body 1</option>
+                <option value="BodyType">Body 2</option>
+                <option value="BodyType">Body 3</option>
+            </select>
+            <input type="number" name="DoorsCount" placeholder="Doors count" />
+
+            <h3>Engine</h3>
+            <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
+            <input type="number" name="CylinderCount" placeholder="Cylinder count" />
+            <select id="Petrol" name="PetrolType">
+                <option value="PetrolType">Petrol 1</option>
+                <option value="PetrolType">Petrol 2</option>
+                <option value="PetrolType">Petrol 3</option>
+            </select>
+            <input type="number" name="MaxPower" placeholder="maxPower" />
+            <input type="number" name="MaxTorque" placeholder="MaxTorque" />
+            <input type="number" name="MaxRpm" placeholder="MaxRpm" />
+            <input type="number" name="MaxPowerRpm" placeholder="MaxPowerRpm" />
+            <input type="number" name="MaxTorqueRpm" placeholder="MaxTorqueRpm" />
+            <input type="number" name="CityСonsumption" placeholder="City Сonsumption" />
+            <input type="number" name="AutobanСonsumption" placeholder="Autoban Сonsumption" />
+            <input type="number" name="MidleСonsumption" placeholder="Midle Сonsumption" />
+            <select id="Boost" name="BoostType">
+                <option value="BoostType">Boost 1</option>
+                <option value="BoostType">Boost 2</option>
+                <option value="BoostType">Boost 3</option>
+            </select>
+
+
+
+
+            <h3>Comfort</h3>
             <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
             <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
             <input type="checkbox" id="ComfortList" value="ComfortList" name="ComfortList"><label class="light" for="development">ComfortList</label><br>
-            <h3>Example 2</h3>
+            <h3>State</h3>
             <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
             <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
             <input type="checkbox" id="StateList" value="StateList" name="StateList"><label class="light" for="design">StateList</label><br>
-            <h3>Example 3</h3>
+            <h3>Mupti media</h3>
             <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
             <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
             <input type="checkbox" id="MultiMediaList" value="MultiMediaList" name="MultiMediaList"><label class="light" for="business">MultiMediaList</label><br>
-            <h3>Example 4</h3>
+            <h3>Save</h3>
             <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
-
             <input type="checkbox" id="SaveList" value="SaveList" name="SaveList"><label class="light" for="design">SaveList</label><br>
-
-
         </fieldset>
         <button type="submit">+ADD</button>
-    </form>
-
-</body>
-</html>
+    }
+@*</body>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

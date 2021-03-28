@@ -1895,7 +1895,10 @@
         },
         "runtime": {
           "bin/placeholder/Core.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Domain/1.0.0": {
         "type": "project",
@@ -6663,20 +6666,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vladi\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\OhDidUProgrammer\\Codes\\CarDealer\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\OhDidUProgrammer\\Codes\\CarDealer\\BLL\\BLL.csproj",
-      "packagesPath": "C:\\Users\\vladi\\.nuget\\packages\\",
-      "outputPath": "C:\\OhDidUProgrammer\\Codes\\CarDealer\\BLL\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\BLL.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\vladi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6689,8 +6697,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\OhDidUProgrammer\\Codes\\CarDealer\\Core\\Core.csproj": {
-              "projectPath": "C:\\OhDidUProgrammer\\Codes\\CarDealer\\Core\\Core.csproj"
+            "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\Core\\Core.csproj"
             }
           }
         }
@@ -6737,11 +6745,14 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
