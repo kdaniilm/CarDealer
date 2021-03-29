@@ -14,6 +14,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Infrastructure
         {
             CreateMap<CarDto, CarViewModel>();
             CreateMap<CarViewModel, CarDto>();
+            
         }
     }
 }

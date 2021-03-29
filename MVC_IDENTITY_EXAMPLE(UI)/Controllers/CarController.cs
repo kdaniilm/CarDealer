@@ -17,7 +17,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
     //[Authorize]
     public class CarController : Controller
     {
-        // GET: BookController
         private readonly CarService _carService;
         private readonly IMapper _mapper;
 
@@ -26,13 +25,13 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             this._carService = carService;
             this._mapper = mapper;
         }
+
+
         public async Task<ActionResult> Index()
         {
             var cars = await _carService.GetAllCarsAsync();
             return View(cars);
         }
-
-        
         [HttpGet]
         public async Task<ActionResult> Create() => await Task.Run(() => View());
 
