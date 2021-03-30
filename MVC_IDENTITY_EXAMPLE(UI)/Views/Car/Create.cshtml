@@ -167,6 +167,7 @@ label.light {
 
     @using (Html.BeginForm("Create", "Car", FormMethod.Post))
     {
+        @Html.ValidationSummary();
         <h1> Create Car</h1>
 
         <fieldset>
@@ -175,7 +176,7 @@ label.light {
             <input type="number" name="CarPrice" placeholder="Car Price" />
             <input type="number" name="RunRange" placeholder="Run Range" />
 
-            <input type="checkbox" value="IsNew" name="IsNew"><label   class="light">New Car</label><br>
+            <input type="checkbox" name="isNewCheckBoxAnswer"><label class="light">New Car</label><br>
 
 
             <h4>Brend:</h4>

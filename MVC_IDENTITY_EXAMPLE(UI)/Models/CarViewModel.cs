@@ -45,7 +45,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public decimal MidleСonsumption { get; set; }
         [Required]
         public int BoostTypeId { get; set; }
-        //public BaseConfigurationViewModel Base { get; set; }
 
         #region Bad style
         //public IList<Comment> Comments { get; set; }

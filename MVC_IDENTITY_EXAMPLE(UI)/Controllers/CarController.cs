@@ -1,12 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using BLL;
-using Domain.Model;
-using Microsoft.AspNetCore.Authorization;
 using BLL.Service;
 using BLL.Dto;
 using MVC_IDENTITY_EXAMPLE_UI_.Models;
@@ -26,20 +19,36 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             this._mapper = mapper;
         }
 
-
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> GetCarPartial()
         {
             var cars = await _carService.GetAllCarsAsync();
-            return View(cars);
+            return PartialView("GetCarPartial", cars);
+        }
+        public async Task<ActionResult> Index()
+        {
+            return await Task.Run(() => View());
         }
         [HttpGet]
         public async Task<ActionResult> Create() => await Task.Run(() => View());
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<ActionResult> Create(CarViewModel car)
+        public async Task<ActionResult> Create(CarViewModel car, string isNewCheckBoxAnswer)
         {
+            if (isNewCheckBoxAnswer == "on")
+                car.IsNew = true;
+            else
+                car.IsNew = false;
+
             var carDto = _mapper.Map<CarDto>(car);
+            var x = "";
+            foreach(var item in ModelState.Values)
+            {
+                foreach (var item2 in item.Errors)
+                {
+                    x = item2.ToString();  
+                }
+            }
             if (ModelState.IsValid)
             {
                 await _carService.AddCarAsync(carDto);

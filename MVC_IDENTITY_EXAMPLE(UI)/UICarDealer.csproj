@@ -17,10 +17,6 @@
     
     <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
-  </ItemGroup> 
-    
-    <ItemGroup>
-      <Folder Include="Views\CarShow\" />
-    </ItemGroup>
+  </ItemGroup>
 
 </Project>
