@@ -125,7 +125,7 @@ namespace BLL.Service
             car.RunRange = carDto.RunRange;
             car.IsNew = carDto.IsNew;
 
-            car.Model = await _carContext.CarModels.FindAsync(carDto.ModelId);
+            car.Model = new CarModel() { Brend = new CarBrend() { CreateCountry = new CreateCountry() { CountryName = "Germany" }, BrendName = carDto.Brend }, ModelName = carDto.Model };
 
             var imagePathes = new List<ImagePath>();
             foreach(var img in carDto.ImagePathes)
@@ -196,7 +196,8 @@ namespace BLL.Service
 
         public async Task<List<Car>> GetAllCarsAsync()
         {
-            var cars = await _carContext.Cars.ToListAsync();
+            var cars = await _carContext.Cars.Include(x => x.Model).Include(x => x.Model.Brend).Include(x => x.Base).Include(x => x.Base.Engine)
+                .Include(x => x.Base.Engine.Petrol).ToListAsync();
             return cars;
         }
 

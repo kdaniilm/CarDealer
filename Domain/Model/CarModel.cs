@@ -10,7 +10,6 @@ namespace Domain.Model
     {
         public int Id { get; set; }
         public string ModelName { get; set; }
-        public int? BrendId { get; set; }
         public CarBrend Brend { get; set; }
     }
 }

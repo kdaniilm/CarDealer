@@ -12,8 +12,8 @@ namespace BLL.Dto
         public bool IsNew { get; set; }
         public decimal CarPrice { get; set; }
         public int RunRange { get; set; }
-        public int BrendId { get; set; }
-        public int ModelId { get; set; }
+        public string Brend { get; set; }
+        public string Model { get; set; }
         public IList<string> ImagePathes { get; set; }
         public IList<int> ComfortList { get; set; }
         public IList<int> StateList { get; set; }

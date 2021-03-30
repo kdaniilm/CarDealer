@@ -15,9 +15,9 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         [Required]
         public int RunRange { get; set; }
         [Required]
-        public int BrendId { get; set; }
+        public string Brend { get; set; }
         [Required]
-        public int ModelId { get; set; }
+        public string Model { get; set; }
         public IList<string> ImagePathes { get; set; }
         public IList<int> ComfortList { get; set; }
         public IList<int> StateList { get; set; }

@@ -57,30 +57,30 @@ namespace Core.Context
                     new PetrolType{Id = 6, Type = "Electric"}
                 });
 
-            builder.Entity<CreateCountry>().HasData(
-                new CreateCountry[]
-                {
-                    new CreateCountry{Id = 1, CountryName = "Germany"},
-                    new CreateCountry{Id = 2, CountryName = "Japan"},
-                    new CreateCountry{Id = 3, CountryName = "USA"},
-                    new CreateCountry{Id = 4, CountryName = "England"}
-                });
-            builder.Entity<CarBrend>().HasData(
-                new CarBrend[]
-                {
-                    new CarBrend{Id = 1, BrendName = "Audi", CreateCountryId = 1},
-                    new CarBrend{Id = 2, BrendName = "Nissan", CreateCountryId = 2},
-                    new CarBrend{Id = 3, BrendName = "Dodge", CreateCountryId = 3},
-                    new CarBrend{Id = 4, BrendName = "Bentley", CreateCountryId = 4}
-                });
-            builder.Entity<CarModel>().HasData(
-                new CarModel[]
-                {
-                    new CarModel{Id = 1, ModelName = "RS3", BrendId = 1},
-                    new CarModel{Id = 2, ModelName = "GT-R", BrendId = 2},
-                    new CarModel{Id = 3, ModelName = "Durando", BrendId = 3},
-                    new CarModel{Id = 4, ModelName = "Flying Spur", BrendId = 4}
-                });
+            //builder.Entity<CreateCountry>().HasData(
+            //    new CreateCountry[]
+            //    {
+            //        new CreateCountry{Id = 1, CountryName = "Germany"},
+            //        new CreateCountry{Id = 2, CountryName = "Japan"},
+            //        new CreateCountry{Id = 3, CountryName = "USA"},
+            //        new CreateCountry{Id = 4, CountryName = "England"}
+            //    });
+            //builder.Entity<CarBrend>().HasData(
+            //    new CarBrend[]
+            //    {
+            //        new CarBrend{Id = 1, BrendName = "Audi", CreateCountryId = 1},
+            //        new CarBrend{Id = 2, BrendName = "Nissan", CreateCountryId = 2},
+            //        new CarBrend{Id = 3, BrendName = "Dodge", CreateCountryId = 3},
+            //        new CarBrend{Id = 4, BrendName = "Bentley", CreateCountryId = 4}
+            //    });
+            //builder.Entity<CarModel>().HasData(
+            //    new CarModel[]
+            //    {
+            //        new CarModel{Id = 1, ModelName = "RS3", BrendId = 1},
+            //        new CarModel{Id = 2, ModelName = "GT-R", BrendId = 2},
+            //        new CarModel{Id = 3, ModelName = "Durando", BrendId = 3},
+            //        new CarModel{Id = 4, ModelName = "Flying Spur", BrendId = 4}
+            //    });
             builder.Entity<ComfortConfiguration>().HasData(
                 new ComfortConfiguration[]
                 {
