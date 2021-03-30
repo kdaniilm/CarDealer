@@ -225,13 +225,13 @@ label.light {
 
             <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
             <input type="number" name="CylinderCount" placeholder="Cylinder count" />
-            <select id="Petrol" name="PetrolTypeId">
-                <option value="1">Petrol</option>
-                <option value="2">Gas/Petrol</option>
-                <option value="3">Gas</option>
-                <option value="4">Diesel</option>
-                <option value="5">Hibrid</option>
-                <option value="6">Electric</option>
+            <select id="Petrol" name="PetrolType">
+                <option value="Petrol">Petrol</option>
+                <option value="Gas/Petrol">Gas/Petrol</option>
+                <option value="Gas">Gas</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hibrid">Hibrid</option>
+                <option value="Electric">Electric</option>
             </select>
             <input type="number" name="MaxPower" placeholder="maxPower" />
             <input type="number" name="MaxTorque" placeholder="MaxTorque" />
@@ -241,31 +241,31 @@ label.light {
             <input type="number" name="CityСonsumption" placeholder="City Сonsumption" />
             <input type="number" name="AutobanСonsumption" placeholder="Autoban Сonsumption" />
             <input type="number" name="MidleСonsumption" placeholder="Midle Сonsumption" />
-            <select id="Boost" name="BoostTypeId">
-                <option value="1">N/A</option>
-                <option value="2">Supercharger</option>
-                <option value="3">Single Turbo</option>
-                <option value="4">Twin turbo</option>
-                <option value="5">Bi turbo</option>
+            <select id="Boost" name="BoostType">
+                <option value="N/A">N/A</option>
+                <option value="Supercharger">Supercharger</option>
+                <option value="Single Turbo">Single Turbo</option>
+                <option value="Twin turbo">Twin turbo</option>
+                <option value="Bi turbo">Bi turbo</option>
             </select>
 
 
 
 
             <h3>Comfort</h3>
-            <input type="checkbox" id="ComfortList" value="1" name="ComfortList"><label class="light" for="development">Conditioner</label><br>
-            <input type="checkbox" id="ComfortList" value="2" name="ComfortList"><label class="light" for="development">Seats heating</label><br>
-            <input type="checkbox" id="ComfortList" value="3" name="ComfortList"><label class="light" for="development">Cruise control</label><br>
+            <input type="checkbox" id="ComfortList" value="Conditioner" name="ComfortList"><label class="light" for="development">Conditioner</label><br>
+            <input type="checkbox" id="ComfortList" value="Seats heating" name="ComfortList"><label class="light" for="development">Seats heating</label><br>
+            <input type="checkbox" id="ComfortList" value="Cruise control" name="ComfortList"><label class="light" for="development">Cruise control</label><br>
             <h3>State</h3>
-            <input type="checkbox" id="StateList" value="1" name="StateList"><label class="light" for="design">Garage saving</label><br>
-            <input type="checkbox" id="StateList" value="2" name="StateList"><label class="light" for="design">Dont hit</label><br>
-            <input type="checkbox" id="StateList" value="3" name="StateList"><label class="light" for="design">First owner</label><br>
+            <input type="checkbox" id="StateList" value="Garage saving" name="StateList"><label class="light" for="design">Garage saving</label><br>
+            <input type="checkbox" id="StateList" value="Dont hit" name="StateList"><label class="light" for="design">Dont hit</label><br>
+            <input type="checkbox" id="StateList" value="First owner" name="StateList"><label class="light" for="design">First owner</label><br>
             <h3>Mupti media</h3>
-            <input type="checkbox" id="MultiMediaList" value="1" name="MultiMediaList"><label class="light" for="business">MP3</label><br>
-            <input type="checkbox" id="MultiMediaList" value="2" name="MultiMediaList"><label class="light" for="business">Subbuffer</label><br>
+            <input type="checkbox" id="MultiMediaList" value="MP3" name="MultiMediaList"><label class="light" for="business">MP3</label><br>
+            <input type="checkbox" id="MultiMediaList" value="Subbuffer" name="MultiMediaList"><label class="light" for="business">Subbuffer</label><br>
             <h3>Save</h3>
-            <input type="checkbox" id="SaveList" value="1" name="SaveList"><label class="light" for="design">Air bags</label><br>
-            <input type="checkbox" id="SaveList" value="2" name="SaveList"><label class="light" for="design">Sleeping check</label><br>
+            <input type="checkbox" id="SaveList" value="Air bags" name="SaveList"><label class="light" for="design">Air bags</label><br>
+            <input type="checkbox" id="SaveList" value="Sleeping check" name="SaveList"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
         <button type="submit">+ADD</button>
     }

@@ -24,7 +24,7 @@ namespace BLL.Service
             this._mapper = mapper;
         }
 
-        public async Task AddCarAsync(CarDto carDto)
+        public async Task AddCarAsync(Car car)
         {
             #region old method
             //var createCountry = new CreateCountry() { CountryName = "Japan" };
@@ -111,93 +111,91 @@ namespace BLL.Service
             //    Base = baseConfig,
             //    Comments = null
             //};
-            #endregion
-            var car = await CarConfigureAsync(carDto);
+            #endregion //await CarConfigureAsync(carDto);
             await _carContext.Cars.AddAsync(car);
             await _carContext.SaveChangesAsync();
         }
 
-        private async Task<Car> CarConfigureAsync(CarDto carDto)
-        {
-            var car = new Car();
+        //private async Task<Car> CarConfigureAsync(CarDto carDto)
+        //{
+        //    var car = new Car();
 
-            car.CarPrice = carDto.CarPrice;
-            car.RunRange = carDto.RunRange;
-            car.IsNew = carDto.IsNew;
+        //    car.CarPrice = carDto.CarPrice;
+        //    car.RunRange = carDto.RunRange;
+        //    car.IsNew = carDto.IsNew;
 
-            car.Model = new CarModel() { Brend = new CarBrend() { CreateCountry = new CreateCountry() { CountryName = "Germany" }, BrendName = carDto.Brend }, ModelName = carDto.Model };
+        //    car.Model = new CarModel() { Brend = new CarBrend() { CreateCountry = new CreateCountry() { CountryName = "Germany" }, BrendName = carDto.Brend }, ModelName = carDto.Model };
 
-            var imagePathes = new List<ImagePath>();
-            foreach(var img in carDto.ImagePathes)
-            {
-                imagePathes.Add(new ImagePath() { ImgPath = img});
-            }
-            imagePathes.Add(new ImagePath() { ImgPath = "asd" });
-            car.ImagePathes = imagePathes;
+        //    var imagePathes = new List<ImagePath>();
+        //    foreach(var img in carDto.ImagePathes)
+        //    {
+        //        imagePathes.Add(new ImagePath() { ImgPath = img});
+        //    }
+        //    imagePathes.Add(new ImagePath() { ImgPath = "asd" });
+        //    car.ImagePathes = imagePathes;
 
-            var comfortList = new List<ComfortConfiguration>();
-            foreach (var comfortItem in carDto.ComfortList)
-            {
-                comfortList.Add( await _carContext.ComfortConfigurations.FindAsync(comfortItem));
-            }
-            car.ComfortList = comfortList;
+        //    var comfortList = new List<ComfortConfiguration>();
+        //    foreach (var comfortItem in carDto.ComfortList)
+        //    {
+        //        comfortList.Add( await _carContext.ComfortConfigurations.FindAsync(comfortItem));
+        //    }
+        //    car.ComfortList = comfortList;
 
-            var stateList = new List<StateConfiguration>();
-            foreach (var stateItem in carDto.StateList)
-            {
-                stateList.Add(await _carContext.StateConfigurations.FindAsync(stateItem));
-            }
-            car.StateList = stateList;
+        //    var stateList = new List<StateConfiguration>();
+        //    foreach (var stateItem in carDto.StateList)
+        //    {
+        //        stateList.Add(await _carContext.StateConfigurations.FindAsync(stateItem));
+        //    }
+        //    car.StateList = stateList;
 
-            var multiMediaList = new List<MultiMediaConfiguration>();
-            foreach (var multiMediaItem in carDto.MultiMediaList)
-            {
-                multiMediaList.Add(await _carContext.MultiMediaConfigurations.FindAsync(multiMediaItem));
-            }
-            car.MultiMediaList = multiMediaList;
+        //    var multiMediaList = new List<MultiMediaConfiguration>();
+        //    foreach (var multiMediaItem in carDto.MultiMediaList)
+        //    {
+        //        multiMediaList.Add(await _carContext.MultiMediaConfigurations.FindAsync(multiMediaItem));
+        //    }
+        //    car.MultiMediaList = multiMediaList;
 
-            var saveList = new List<SaveConfiguration>();
-            foreach (var saveItem in carDto.SaveList)
-            {
-                saveList.Add(await _carContext.SaveConfigurations.FindAsync(saveItem));
-            }
-            car.SaveList = saveList;
+        //    var saveList = new List<SaveConfiguration>();
+        //    foreach (var saveItem in carDto.SaveList)
+        //    {
+        //        saveList.Add(await _carContext.SaveConfigurations.FindAsync(saveItem));
+        //    }
+        //    car.SaveList = saveList;
 
-            var baseConfig = new BaseConfiguration();
-            baseConfig.BodyType = carDto.BodyType;
-            baseConfig.DoorsCount = carDto.DoorsCount;
-            baseConfig.DriverianType = carDto.DriverianType;
-            baseConfig.GearBoxType = carDto.GearBoxType;
-            baseConfig.GearCount = carDto.GearCount;
-            baseConfig.Engine = new Engine() {
-                CylinderCount = carDto.CylinderCount,
-                Petrol = await _carContext.PetrolTypes.FindAsync(carDto.PetrolTypeId),
-                Volume = carDto.Volume,
-                Characteristics = new EngineCharacteristics()
-                {
-                    MaxPower = carDto.MaxPower,
-                    MaxTorque = carDto.MaxTorque,
-                    MaxRpm = carDto.MaxRpm,
-                    MaxPowerRpm = carDto.MaxPowerRpm,
-                    MaxTorqueRpm = carDto.MaxTorqueRpm,
-                    CityСonsumption = carDto.CityСonsumption,
-                    AutobanСonsumption = carDto.AutobanСonsumption,
-                    MidleСonsumption = carDto.MidleСonsumption,
-                    Boost = await _carContext.BoostTypes.FindAsync(carDto.BoostTypeId)
-                }
-            };
+        //    var baseConfig = new BaseConfiguration();
+        //    baseConfig.BodyType = carDto.BodyType;
+        //    baseConfig.DoorsCount = carDto.DoorsCount;
+        //    baseConfig.DriverianType = carDto.DriverianType;
+        //    baseConfig.GearBoxType = carDto.GearBoxType;
+        //    baseConfig.GearCount = carDto.GearCount;
+        //    baseConfig.Engine = new Engine() {
+        //        CylinderCount = carDto.CylinderCount,
+        //        Petrol = await _carContext.PetrolTypes.FindAsync(carDto.PetrolTypeId),
+        //        Volume = carDto.Volume,
+        //        Characteristics = new EngineCharacteristics()
+        //        {
+        //            MaxPower = carDto.MaxPower,
+        //            MaxTorque = carDto.MaxTorque,
+        //            MaxRpm = carDto.MaxRpm,
+        //            MaxPowerRpm = carDto.MaxPowerRpm,
+        //            MaxTorqueRpm = carDto.MaxTorqueRpm,
+        //            CityСonsumption = carDto.CityСonsumption,
+        //            AutobanСonsumption = carDto.AutobanСonsumption,
+        //            MidleСonsumption = carDto.MidleСonsumption,
+        //            Boost = await _carContext.BoostTypes.FindAsync(carDto.BoostTypeId)
+        //        }
+        //    };
 
-            car.Base = baseConfig;
+        //    car.Base = baseConfig;
 
-            car.Comments = new List<Comment>();
+        //    car.Comments = new List<Comment>();
 
-            return car;
-        }
+        //    return car;
+        //}
 
         public async Task<List<Car>> GetAllCarsAsync()
         {
-            var cars = await _carContext.Cars.Include(x => x.Model).Include(x => x.Model.Brend).Include(x => x.Base).Include(x => x.Base.Engine)
-                .Include(x => x.Base.Engine.Petrol).ToListAsync();
+            var cars = await _carContext.Cars.ToListAsync();
             return cars;
         }
 

@@ -19,10 +19,10 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         [Required]
         public string Model { get; set; }
         public IList<string> ImagePathes { get; set; }
-        public IList<int> ComfortList { get; set; }
-        public IList<int> StateList { get; set; }
-        public IList<int> MultiMediaList { get; set; }
-        public IList<int> SaveList { get; set; }
+        public IList<string> ComfortList { get; set; }
+        public IList<string> StateList { get; set; }
+        public IList<string> MultiMediaList { get; set; }
+        public IList<string> SaveList { get; set; }
         [Required]
         public string GearBoxType { get; set; }
         public int GearCount { get; set; }
@@ -34,7 +34,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public decimal? Volume { get; set; }
         public int CylinderCount { get; set; }
         [Required]
-        public int PetrolTypeId { get; set; }
+        public string PetrolType { get; set; }
         public int MaxPower { get; set; }
         public int MaxTorque { get; set; }
         public int MaxRpm { get; set; }
@@ -44,7 +44,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public decimal AutobanСonsumption { get; set; }
         public decimal MidleСonsumption { get; set; }
         [Required]
-        public int BoostTypeId { get; set; }
+        public string BoostType { get; set; }
 
         #region Bad style
         //public IList<Comment> Comments { get; set; }

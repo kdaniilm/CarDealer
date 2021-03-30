@@ -4,6 +4,7 @@ using BLL.Service;
 using BLL.Dto;
 using MVC_IDENTITY_EXAMPLE_UI_.Models;
 using AutoMapper;
+using Domain.Model;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {
@@ -33,25 +34,25 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<ActionResult> Create(CarViewModel car, string isNewCheckBoxAnswer)
+        public async Task<ActionResult> Create(CarViewModel carVM, string isNewCheckBoxAnswer)
         {
             if (isNewCheckBoxAnswer == "on")
-                car.IsNew = true;
+                carVM.IsNew = true;
             else
-                car.IsNew = false;
+                carVM.IsNew = false;
 
-            var carDto = _mapper.Map<CarDto>(car);
-            var x = "";
-            foreach(var item in ModelState.Values)
-            {
-                foreach (var item2 in item.Errors)
-                {
-                    x = item2.ToString();  
-                }
-            }
+            var car = _mapper.Map<Car>(carVM);
+            //var x = "";
+            //foreach(var item in ModelState.Values)
+            //{
+            //    foreach (var item2 in item.Errors)
+            //    {
+            //        x = item2.ToString();  
+            //    }
+            //}
             if (ModelState.IsValid)
             {
-                await _carService.AddCarAsync(carDto);
+                await _carService.AddCarAsync(car);
             }
             return RedirectToAction(nameof(Index));
         }

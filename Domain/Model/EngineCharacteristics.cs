@@ -17,6 +17,6 @@ namespace Domain.Model
         public decimal CityСonsumption { get; set; }
         public decimal AutobanСonsumption { get; set; }
         public decimal MidleСonsumption { get; set; }
-        public BoostType Boost { get; set; }
+        public string BoostType { get; set; }
     }
 }

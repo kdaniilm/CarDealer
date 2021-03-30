@@ -16,18 +16,18 @@ namespace Core.Context
             Database.EnsureCreated();
         }
         public DbSet<ImagePath> ImagePaths { get; set; }
-        public DbSet<BaseConfiguration> BaseConfigurations { get; set; }
-        public DbSet<BoostType> BoostTypes { get; set; }
+        //public DbSet<BaseConfiguration> BaseConfigurations { get; set; }
+        //public DbSet<BoostType> BoostTypes { get; set; }
         public DbSet<Car> Cars { get; set; }
-        public DbSet<CarBrend> CarBrends { get; set; }
-        public DbSet<CarModel> CarModels { get; set; }
+        //public DbSet<CarBrend> CarBrends { get; set; }
+        //public DbSet<CarModel> CarModels { get; set; }
         public DbSet<ComfortConfiguration> ComfortConfigurations { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<CreateCountry> CreateCountries { get; set; }
+        //public DbSet<CreateCountry> CreateCountries { get; set; }
         public DbSet<Engine> Engines { get; set; }
-        public DbSet<EngineCharacteristics> EngineCharacteristics { get; set; }
+        //public DbSet<EngineCharacteristics> EngineCharacteristics { get; set; }
         public DbSet<MultiMediaConfiguration> MultiMediaConfigurations { get; set; }
-        public DbSet<PetrolType> PetrolTypes { get; set; }
+        //public DbSet<PetrolType> PetrolTypes { get; set; }
         public DbSet<SaveConfiguration> SaveConfigurations { get; set; }
         public DbSet<ShowContacts> ShowContacts { get; set; }
         public DbSet<StateConfiguration> StateConfigurations { get; set; }
@@ -36,26 +36,26 @@ namespace Core.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<BoostType>().HasData(
-                new BoostType[]
-                {
-                    new BoostType { Id = 1, Type = "N/A"},
-                    new BoostType { Id = 2, Type = "Supercharger" },
-                    new BoostType { Id = 3, Type = "Single Turbo" },
-                    new BoostType { Id = 4, Type = "Twin turbo" },
-                    new BoostType { Id = 5, Type = "Bi turbo" }
-                });
+            //builder.Entity<BoostType>().HasData(
+            //    new BoostType[]
+            //    {
+            //        new BoostType { Id = 1, Type = "N/A"},
+            //        new BoostType { Id = 2, Type = "Supercharger" },
+            //        new BoostType { Id = 3, Type = "Single Turbo" },
+            //        new BoostType { Id = 4, Type = "Twin turbo" },
+            //        new BoostType { Id = 5, Type = "Bi turbo" }
+            //    });
 
-            builder.Entity<PetrolType>().HasData(
-                new PetrolType[]
-                {
-                    new PetrolType{Id = 1, Type = "Petrol"},
-                    new PetrolType{Id = 2, Type = "Gas/Petrol"},
-                    new PetrolType{Id = 3, Type = "Gas"},
-                    new PetrolType{Id = 4, Type = "Diesel"},
-                    new PetrolType{Id = 5, Type = "Hibrid"},
-                    new PetrolType{Id = 6, Type = "Electric"}
-                });
+            //builder.Entity<PetrolType>().HasData(
+            //    new PetrolType[]
+            //    {
+            //        new PetrolType{Id = 1, Type = "Petrol"},
+            //        new PetrolType{Id = 2, Type = "Gas/Petrol"},
+            //        new PetrolType{Id = 3, Type = "Gas"},
+            //        new PetrolType{Id = 4, Type = "Diesel"},
+            //        new PetrolType{Id = 5, Type = "Hibrid"},
+            //        new PetrolType{Id = 6, Type = "Electric"}
+            //    });
 
             //builder.Entity<CreateCountry>().HasData(
             //    new CreateCountry[]
