@@ -18,10 +18,22 @@ namespace Domain.Model
         public string CarBrend { get; set; }
         public string CreateCountryName { get; set; }
         public IList<ImagePath> ImagePathes { get; set; }
-        public IList<ComfortConfiguration> ComfortList { get; set; }
-        public IList<StateConfiguration> StateList { get; set; }
-        public IList<MultiMediaConfiguration> MultiMediaList { get; set; }
-        public IList<SaveConfiguration> SaveList { get; set; }
+        //public IList<ComfortConfiguration> ComfortList { get; set; }
+        #region Configuration
+        public bool IsHaveCondicioner { get; set; }
+        public bool IsHaveSeatsHeating { get; set; }
+        public bool IsHaveCruiseControl { get; set; }
+        public bool IsHaveGarageSaving { get; set; }
+        public bool IsHaveDontHit { get; set; }
+        public bool IsHaveFirstOwner { get; set; }
+        public bool IsHaveMp3 { get; set; }
+        public bool IsHaveSubbufer { get; set; }
+        public bool IsHaveAirBags { get; set; }
+        public bool IsHaveSleepingCheck { get; set; }
+        #endregion
+        //public IList<StateConfiguration> StateList { get; set; }
+        //public IList<MultiMediaConfiguration> MultiMediaList { get; set; }
+        //public IList<SaveConfiguration> SaveList { get; set; }
         //public BaseConfiguration Base { get; set; }
         public string GearBoxType { get; set; }
         public int GearCount { get; set; }

@@ -176,18 +176,18 @@ label.light {
             <input type="number" name="CarPrice" placeholder="Car Price" />
             <input type="number" name="RunRange" placeholder="Run Range" />
 
-            <input type="checkbox" name="isNewCheckBoxAnswer"><label class="light">New Car</label><br>
+            <input type="checkbox" value="true" name="isNew"><label class="light">New Car</label><br>
 
 
             <h4>Brend:</h4>
-            <select id="brend" name="Brend">
+            <select id="brend" name="CarBrend">
                 <option value="Audi">Audi</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Dodge">Dodge</option>
                 <option value="Bentley">Bentley</option>
             </select>
             <h4>Model:</h4>
-            <select id="model" name="Model">
+            <select id="model" name="ModelName">
                 <option value="RS3">RS3</option>
                 <option value="GT-R">GT-R</option>
                 <option value="Durando">Durando</option>
@@ -253,19 +253,19 @@ label.light {
 
 
             <h3>Comfort</h3>
-            <input type="checkbox" id="ComfortList" value="Conditioner" name="ComfortList"><label class="light" for="development">Conditioner</label><br>
-            <input type="checkbox" id="ComfortList" value="Seats heating" name="ComfortList"><label class="light" for="development">Seats heating</label><br>
-            <input type="checkbox" id="ComfortList" value="Cruise control" name="ComfortList"><label class="light" for="development">Cruise control</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveCondicioner"><label class="light" for="development">Conditioner</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveSeatsHeating"><label class="light" for="development">Seats heating</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveCruiseControl"><label class="light" for="development">Cruise control</label><br>
             <h3>State</h3>
-            <input type="checkbox" id="StateList" value="Garage saving" name="StateList"><label class="light" for="design">Garage saving</label><br>
-            <input type="checkbox" id="StateList" value="Dont hit" name="StateList"><label class="light" for="design">Dont hit</label><br>
-            <input type="checkbox" id="StateList" value="First owner" name="StateList"><label class="light" for="design">First owner</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveGarageSaving"><label class="light" for="design">Garage saving</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveDontHit"><label class="light" for="design">Dont hit</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveFirstOwner"><label class="light" for="design">First owner</label><br>
             <h3>Mupti media</h3>
-            <input type="checkbox" id="MultiMediaList" value="MP3" name="MultiMediaList"><label class="light" for="business">MP3</label><br>
-            <input type="checkbox" id="MultiMediaList" value="Subbuffer" name="MultiMediaList"><label class="light" for="business">Subbuffer</label><br>
+            <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveMp3"><label class="light" for="business">MP3</label><br>
+            <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveSubbufer"><label class="light" for="business">Subbuffer</label><br>
             <h3>Save</h3>
-            <input type="checkbox" id="SaveList" value="Air bags" name="SaveList"><label class="light" for="design">Air bags</label><br>
-            <input type="checkbox" id="SaveList" value="Sleeping check" name="SaveList"><label class="light" for="design">Sleeping check</label><br>
+            <input type="checkbox" id="SaveList" value="true" name="IsHaveAirBags"><label class="light" for="design">Air bags</label><br>
+            <input type="checkbox" id="SaveList" value="true" name="IsHaveSleepingCheck"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
         <button type="submit">+ADD</button>
     }

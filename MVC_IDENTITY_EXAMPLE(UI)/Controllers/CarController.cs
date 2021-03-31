@@ -36,12 +36,11 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<ActionResult> Create(CarViewModel carVM, string isNewCheckBoxAnswer)
         {
-            if (isNewCheckBoxAnswer == "on")
-                carVM.IsNew = true;
-            else
-                carVM.IsNew = false;
+            //if (isNewCheckBoxAnswer == "on")
+            //    carVM.IsNew = true;
+            //else
+            //    carVM.IsNew = false;
 
-            var car = _mapper.Map<Car>(carVM);
             //var x = "";
             //foreach(var item in ModelState.Values)
             //{
@@ -52,6 +51,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             //}
             if (ModelState.IsValid)
             {
+                var car = _mapper.Map<Car>(carVM);
                 await _carService.AddCarAsync(car);
             }
             return RedirectToAction(nameof(Index));
