@@ -20,9 +20,10 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             this._mapper = mapper;
         }
 
-        public async Task<ActionResult> GetCarPartial()
+        public async Task<ActionResult> GetCarPartialAsync(FilterViewModel filter)
         {
-            var cars = await _carService.GetAllCarsAsync();
+            var filterDto = _mapper.Map<FilterDto>(filter);
+            var cars = await _carService.GetCarsWithFilterAsync(filterDto);
             return PartialView("GetCarPartial", cars);
         }
         public async Task<ActionResult> Index()
@@ -36,19 +37,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<ActionResult> Create(CarViewModel carVM, string isNewCheckBoxAnswer)
         {
-            //if (isNewCheckBoxAnswer == "on")
-            //    carVM.IsNew = true;
-            //else
-            //    carVM.IsNew = false;
-
-            //var x = "";
-            //foreach(var item in ModelState.Values)
-            //{
-            //    foreach (var item2 in item.Errors)
-            //    {
-            //        x = item2.ToString();  
-            //    }
-            //}
             if (ModelState.IsValid)
             {
                 var car = _mapper.Map<Car>(carVM);

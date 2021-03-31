@@ -13,7 +13,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Infrastructure
     {
         public MapperConfig()
         {
-            CreateMap<Car, CarViewModel>();
+            //map car
             CreateMap<CarViewModel, Car>().ForMember(x => x.Engine, opt => opt.MapFrom(src => new Engine() {
                 AutobanСonsumption = src.AutobanСonsumption,
                 BoostType = src.BoostType,
@@ -27,6 +27,9 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Infrastructure
                 PetrolType = src.PetrolType,
                 Volume = src.Volume
             }));
+
+            //Map filter
+            CreateMap<FilterViewModel, FilterDto>();
         }
     }
 }

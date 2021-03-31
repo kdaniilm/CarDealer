@@ -21,8 +21,6 @@ namespace Core.Context
         public DbSet<Engine> Engines { get; set; }
         public DbSet<ShowContacts> ShowContacts { get; set; }
         public DbSet<UserCarBuff> userCarBuffs { get; set; }
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

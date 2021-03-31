@@ -13,6 +13,7 @@ namespace BLL.Service.Interfaces
     {
         Task AddCarAsync(Car car);
         Task<List<Car>> GetAllCarsAsync();
-        Task<CarDto> GetCarAsync(int Id);
+        Task<Car> GetCarAsync(int Id);
+        Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter);
     }
 }

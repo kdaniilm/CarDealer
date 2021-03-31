@@ -121,11 +121,15 @@ namespace BLL.Service
             return cars;
         }
 
-        public async Task<CarDto> GetCarAsync(int Id)
+        public async Task<Car> GetCarAsync(int Id)
         {
             var car = await _carContext.Cars.FindAsync(Id);
-            var carDto = _mapper.Map<CarDto>(car);
-            return carDto;
+            return car;
+        }
+        public async Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter)
+        {
+            var car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
+            return await Task<Car>.Run(() => car);
         }
     }
 }

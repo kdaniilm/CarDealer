@@ -14,8 +14,7 @@ namespace BLL.Infrastructure
     {
         public MapperConfig()
         {
-            CreateMap<Car, CarDto>();
-            CreateMap<CarDto, Car>();
+            
         }
     }
 }

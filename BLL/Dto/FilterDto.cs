@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MVC_IDENTITY_EXAMPLE_UI_.Models
+namespace BLL.Dto
 {
-    public class FilterViewModel
+    public class FilterDto
     {
         public bool IsNew { get; set; }
         public decimal MinPrice { get; set; }
