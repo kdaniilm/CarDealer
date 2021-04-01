@@ -7,47 +7,45 @@ using System.Threading.Tasks;
 using BLL;
 using Domain.Model;
 using Microsoft.AspNetCore.Authorization;
+using BLL.Service;
+using BLL.Dto;
+using MVC_IDENTITY_EXAMPLE_UI_.Models;
+using AutoMapper;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {
     //[Authorize]
     public class CarController : Controller
     {
-        // GET: BookController
         private readonly CarService _carService;
+        private readonly IMapper _mapper;
 
-        public CarController(CarService carService)
+        public CarController(CarService carService, IMapper mapper)
         {
             this._carService = carService;
+            this._mapper = mapper;
         }
-        public ActionResult Index()
+
+
+        public async Task<ActionResult> Index()
         {
-            //return View(_bookService.GetBooks());
-            var cars = new List<Car>();
-            for (int i = 0; i < 10; i++)
-            {
-                cars.Add(new Car()
-                {
-                    ImagePathes = new List<ImagePath> { new ImagePath() { ImgPath = "asd" } },
-                    Model = new CarModel() { Brend = new CarBrend() { BrendName = "Nissan" }, ModelName = "Juke" },
-                    CarPrice = 2000,
-                    RunRange = 100000,
-                    Base = new BaseConfiguration() { Engine = new Engine() { Petrol = new PetrolType() { Type = "Petrol" }, Volume = 1593 }, GearBoxType = "Manual", DriverianType = "FWD" }
-                });
-            }
+            var cars = await _carService.GetAllCarsAsync();
             return View(cars);
         }
+        [HttpGet]
+        public async Task<ActionResult> Create() => await Task.Run(() => View());
 
-        [AutoValidateAntiforgeryToken]
         [HttpPost]
-        public ActionResult Create(Book book)
+        [AutoValidateAntiforgeryToken]
+        public async Task<ActionResult> Create(CarViewModel car)
         {
-            //_bookService.Add(book);
+            var carDto = _mapper.Map<CarDto>(car);
+            if (ModelState.IsValid)
+            {
+                await _carService.AddCarAsync(carDto);
+            }
             return RedirectToAction(nameof(Index));
         }
-
-        public ActionResult Create() => View();
-
 
     }
 }

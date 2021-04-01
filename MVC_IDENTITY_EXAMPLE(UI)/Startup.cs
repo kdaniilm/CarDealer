@@ -14,6 +14,8 @@ using BLL.Service;
 using BLL.Service.Interfaces;
 using Domain.Model;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using MVC_IDENTITY_EXAMPLE_UI_.Infrastructure;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_
 {
@@ -46,7 +48,12 @@ namespace MVC_IDENTITY_EXAMPLE_UI_
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<EmailConfirmationProviderOption>(op => op.TokenLifespan = TimeSpan.FromHours(2));
 
-       
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MapperConfig());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddAuthentication().AddCookie(op => op.LoginPath = "/Login");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

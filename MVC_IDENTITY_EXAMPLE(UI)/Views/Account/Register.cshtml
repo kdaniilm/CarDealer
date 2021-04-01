@@ -1,42 +1,209 @@
 ﻿@model MVC_IDENTITY_EXAMPLE_UI_.Models.RegisterViewModel
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Create your account";
 }
+<style>
+      *, *:before, *:after {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+      }
 
-<h1>Register</h1>
+      html {
+      }
 
-<h4>RegisterViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+      body {
+          font-family: 'Nunito', sans-serif;
+          color: #384047;
+      }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+      form {
+          /*max-width: 300px;
+    margin: 4% auto;
+    padding: 10px 20px;
+    background: #D3C8F5;
+    border-radius: 8px;*/
+      }
+
+      h1 {
+          margin: 0 0 5% 0;
+          text-align: center;
+      }
+
+      h3 {
+          margin: 2% 0 4% 0;
+          text-align: center;
+      }
+
+      h4 {
+          margin: 4% 0 2% 0;
+          text-align: left;
+      }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        height: auto !important;
+        color: none !important;
+        box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #241455 !important;
+        padding: 14px 10px !important;
+        width: 200px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+    }
+
+        input[type = "text"]:focus, input[type = "password"]:focus {
+            width: 280px !important;
+            border-color: #239B7D !important;
+        }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+          margin: 0 1% 1% 0;
+      }
+
+
+    input[type = "submit"] {
+        border: 0 !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #239B7D !important;
+        padding: 14px 40px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+        cursor: pointer !important;
+        width: 50% !important;
+    }
+
+        input[type = "submit"]:hover {
+            background: #239B7D !important;
+            color: #331C78 !important;
+            width: 280px !important;
+        }
+
+      select {
+          padding: 6px;
+          height: 32px;
+          border-radius: 2px;
+      }
+
+      button {
+          padding: 19px 39px 18px 39px;
+          color: #FFF;
+          background-color: #239B7D;
+          font-size: 18px;
+          text-align: center;
+          font-style: normal;
+          border-radius: 5px;
+          width: 100%;
+          border: 1px solid #331C78;
+          border-width: 1px 1px 3px;
+          box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+          margin-bottom: 5%;
+      }
+
+    fieldset {
+        margin-bottom: 3%;
+        border: none;
+        font-family: 'Nunito', sans-serif;
+        color: #384047;
+        width: 90% !important;
+        margin: 0 0 0 0 !important;
+    }
+
+      legend {
+          font-size: 1.4em;
+          margin-bottom: 4%;
+      }
+
+      label {
+          display: block;
+          margin-bottom: 2%;
+      }
+
+          label.light {
+              font-weight: 300;
+              display: inline;
+          }
+
+      .number {
+          background-color: #239B7D;
+          color: #fff;
+          height: 30px;
+          width: 30px;
+          display: inline-block;
+          font-size: 0.8em;
+          margin-right: 4px;
+          line-height: 30px;
+          text-align: center;
+          text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+          border-radius: 100%;
+      }
+
+
+      form {
+          max-width: 480px;
+      }
+
+      }
+
+
+      /*
+      #239B7D
+      #D3C8F5
+      */
+      /*
+      #160C32  RGB(22, 12, 50)
+      #241455  RGB(36, 20, 85)
+      #331C78  RGB(51, 28, 120)
+      #41239B  RGB(65, 35, 155)
+      #4F2ABF  RGB(79, 42, 191)
+      #633DD6  RGB(99, 61, 214)
+
+      */
+
+
+
+</style>
+
+<form id="msform">
+    <!-- progressbar -->
+    
+    <!-- fieldsets -->
+    <fieldset>
+        <h2 class="fs-title">Create your account</h2>
+        <input asp-for="Login" class="form-control" placeholder="Login" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+        <input asp-for="Password" class="form-control" placeholder="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <input asp-for="City" class="form-control" placeholder="City" />
+        <span asp-validation-for="City" class="text-danger"></span>
+        <input type="submit" name="submit" class="submit action-button" value="Create" />
+    </fieldset>
+</form>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
