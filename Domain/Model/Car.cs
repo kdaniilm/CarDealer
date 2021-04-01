@@ -13,12 +13,10 @@ namespace Domain.Model
         public bool IsNew { get; set; }
         public decimal CarPrice { get; set; }
         public int RunRange { get; set; }
-        //public CarModel Model { get; set; }
         public string ModelName { get; set; }
         public string CarBrend { get; set; }
         public string CreateCountryName { get; set; }
         public IList<ImagePath> ImagePathes { get; set; }
-        //public IList<ComfortConfiguration> ComfortList { get; set; }
         #region Configuration
         public bool IsHaveCondicioner { get; set; }
         public bool IsHaveSeatsHeating { get; set; }
@@ -31,10 +29,6 @@ namespace Domain.Model
         public bool IsHaveAirBags { get; set; }
         public bool IsHaveSleepingCheck { get; set; }
         #endregion
-        //public IList<StateConfiguration> StateList { get; set; }
-        //public IList<MultiMediaConfiguration> MultiMediaList { get; set; }
-        //public IList<SaveConfiguration> SaveList { get; set; }
-        //public BaseConfiguration Base { get; set; }
         public string GearBoxType { get; set; }
         public int GearCount { get; set; }
         public string DriverianType { get; set; }
