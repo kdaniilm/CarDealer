@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Model
+namespace MVC_IDENTITY_EXAMPLE_UI_.Models
 {
-    public class Car
+    public class FilterViewModel
     {
-        public int Id { get; set; }
         public bool IsNew { get; set; }
-        public decimal CarPrice { get; set; }
-        public int RunRange { get; set; }
-        public string ModelName { get; set; }
-        public string CarBrend { get; set; }
+        public decimal MinPrice { get; set; }
+        public decimal MaxPrice { get; set; }
+        public int MinRange { get; set; }
+        public int MaxRange { get; set; }
         public string CreateCountryName { get; set; }
-        public IList<ImagePath> ImagePathes { get; set; }
+        public string BrendName { get; set; }
+        public string ModelName { get; set; }
+        public string GearBoxType { get; set; }
+        public string DriverianType { get; set; }
+        public string PetrolType { get; set; }
+        public string BodyType { get; set; }
         #region Configuration
         public bool IsHaveCondicioner { get; set; }
         public bool IsHaveSeatsHeating { get; set; }
@@ -29,12 +31,11 @@ namespace Domain.Model
         public bool IsHaveAirBags { get; set; }
         public bool IsHaveSleepingCheck { get; set; }
         #endregion
-        public string GearBoxType { get; set; }
-        public int GearCount { get; set; }
-        public string DriverianType { get; set; }
         public int DoorsCount { get; set; }
-        public string BodyType { get; set; }
-        public Engine Engine { get; set; }
-        public IList<Comment> Comments { get; set; }
+        public decimal CityСonsumption { get; set; }
+        public decimal AutobanСonsumption { get; set; }
+        public decimal MidleСonsumption { get; set; }
+        public int MaxPower { get; set; }
+        public int MaxTorque { get; set; }
     }
 }

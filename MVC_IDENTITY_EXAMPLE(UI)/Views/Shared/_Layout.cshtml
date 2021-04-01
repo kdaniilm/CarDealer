@@ -174,7 +174,7 @@
         color: blue">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container">
-                  <a style="color: #239B7D" style="color: #239B7D" style="color: #239B7D" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Car Store navigation</a>
+                <a style="color: #239B7D" style="color: #239B7D" style="color: #239B7D" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Car Store navigation</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -182,27 +182,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                             <a style="color: #239B7D" style="color:white" class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a style="color: #239B7D" style="color:white" class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                             <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li> 
+                            <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
                         <li class="nav-item">
                             <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Car" asp-action="Create">Create car</a>
                         </li>
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                 <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                <a style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
                             <li class="nav-item">
-                                  <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                  <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                <a style="color: #239B7D" style="color: #239B7D" class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                             </li>
                         }
                     </ul>
@@ -215,8 +215,6 @@
             @RenderBody()
         </main>
     </div>
-
-    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

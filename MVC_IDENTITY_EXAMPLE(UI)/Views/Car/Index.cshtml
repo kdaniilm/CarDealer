@@ -1,22 +1,31 @@
-﻿@model List<Domain.Model.Car>
-
 <style>
-    h1,h2,h3,h4,p{
-        color:white
+    h1, h2, h3, h4, p {
+        color: white
     }
 </style>
-    <div class="row">
-        @foreach (var car in Model)
-        {
-            <div class="col-md-3">
-                <img src="asd" @*@car.ImagePathes.First()*@ />
-                <h2>@car.Model.Brend.BrendName @car.Model.ModelName</h2>
-                <h3>Price: @car.CarPrice $</h3>
-                <h4>Range: @car.RunRange</h4>
-                <p>Fuel: @car.Base.Engine.Petrol.Type</p>
-                <p>Emgine: @car.Base.Engine.Volume</p>
-                <p>Gear Box: @car.Base.GearBoxType</p>
-                <p>Driverian: @car.Base.DriverianType</p>
-            </div>
-        }
-    </div>
+<div id="AllCarsDivId" class="row">
+   
+</div>
+<input type="button" id="CarLoadBtn" value="Load cars"/>
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        var filter = { "IsNew": "true" };
+            $('#CarLoadBtn').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~/Car/GetCarPartial")',
+                    data: filter,
+                    success: function (data) {
+                        $('#AllCarsDivId').html(data);
+                    },
+                    error: function (data) {
+                        alert(data)
+                    }
+                });
+            });
+    </script>
+}

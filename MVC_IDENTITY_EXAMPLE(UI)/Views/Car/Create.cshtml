@@ -192,16 +192,6 @@
     
 </style>
 
-@*<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Create Car</title>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>*@
-
 @using (Html.BeginForm("Create", "Car", FormMethod.Post))
 {
     <h1> Create Car</h1>
@@ -215,25 +205,25 @@
     </div>
     <div class="row" style="display:flex; justify-content:space-around">
 
-
         <fieldset>
          
 
             <input type="number" name="CarPrice" placeholder="Car Price" />
             <input type="number" name="RunRange" placeholder="Run Range" />
 
-            <input type="checkbox" value="IsNew" name="IsNew"><label class="light">New Car</label><br>
+            <input type="checkbox" value="true" name="isNew"><label class="light">New Car</label><br>
 
 
-            <h4>Brand:</h4>
-            <select id="brend" name="Brend">
+            <h4>Brend:</h4>
+            <select id="brend" name="CarBrend">
+
                 <option value="Audi">Audi</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Dodge">Dodge</option>
                 <option value="Bentley">Bentley</option>
             </select>
             <h4>Model:</h4>
-            <select id="model" name="Model">
+            <select id="model" name="ModelName">
                 <option value="RS3">RS3</option>
                 <option value="GT-R">GT-R</option>
                 <option value="Durando">Durando</option>
@@ -270,13 +260,13 @@
 
             <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
             <input type="number" name="CylinderCount" placeholder="Cylinder count" />
-            <select id="Petrol" name="PetrolTypeId">
-                <option value="1">Petrol</option>
-                <option value="2">Gas/Petrol</option>
-                <option value="3">Gas</option>
-                <option value="4">Diesel</option>
-                <option value="5">Hibrid</option>
-                <option value="6">Electric</option>
+            <select id="Petrol" name="PetrolType">
+                <option value="Petrol">Petrol</option>
+                <option value="Gas/Petrol">Gas/Petrol</option>
+                <option value="Gas">Gas</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hibrid">Hibrid</option>
+                <option value="Electric">Electric</option>
             </select>
             <input type="number" name="MaxPower" placeholder="maxPower" />
             <input type="number" name="MaxTorque" placeholder="MaxTorque" />
@@ -286,36 +276,35 @@
             <input type="number" name="CityСonsumption" placeholder="City Сonsumption" />
             <input type="number" name="AutobanСonsumption" placeholder="Autoban Сonsumption" />
             <input type="number" name="MidleСonsumption" placeholder="Midle Сonsumption" />
-            <select id="Boost" name="BoostTypeId">
-                <option value="1">N/A</option>
-                <option value="2">Supercharger</option>
-                <option value="3">Single Turbo</option>
-                <option value="4">Twin turbo</option>
-                <option value="5">Bi turbo</option>
+            <select id="Boost" name="BoostType">
+                <option value="N/A">N/A</option>
+                <option value="Supercharger">Supercharger</option>
+                <option value="Single Turbo">Single Turbo</option>
+                <option value="Twin turbo">Twin turbo</option>
+                <option value="Bi turbo">Bi turbo</option>
             </select>
 
         </fieldset>
 
         <fieldset>
             <h3>Comfort</h3>
-            <input type="checkbox" id="ComfortList" value="1" name="ComfortList"><label class="light" for="development">Conditioner</label><br>
-            <input type="checkbox" id="ComfortList" value="2" name="ComfortList"><label class="light" for="development">Seats heating</label><br>
-            <input type="checkbox" id="ComfortList" value="3" name="ComfortList"><label class="light" for="development">Cruise control</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveCondicioner"><label class="light" for="development">Conditioner</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveSeatsHeating"><label class="light" for="development">Seats heating</label><br>
+            <input type="checkbox" id="ComfortList" value="true" name="IsHaveCruiseControl"><label class="light" for="development">Cruise control</label><br>
             <h3>State</h3>
-            <input type="checkbox" id="StateList" value="1" name="StateList"><label class="light" for="design">Garage saving</label><br>
-            <input type="checkbox" id="StateList" value="2" name="StateList"><label class="light" for="design">Dont hit</label><br>
-            <input type="checkbox" id="StateList" value="3" name="StateList"><label class="light" for="design">First owner</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveGarageSaving"><label class="light" for="design">Garage saving</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveDontHit"><label class="light" for="design">Dont hit</label><br>
+            <input type="checkbox" id="StateList" value="true" name="IsHaveFirstOwner"><label class="light" for="design">First owner</label><br>
             <h3>Mupti media</h3>
-            <input type="checkbox" id="MultiMediaList" value="1" name="MultiMediaList"><label class="light" for="business">MP3</label><br>
-            <input type="checkbox" id="MultiMediaList" value="2" name="MultiMediaList"><label class="light" for="business">Subbuffer</label><br>
+            <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveMp3"><label class="light" for="business">MP3</label><br>
+            <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveSubbufer"><label class="light" for="business">Subbuffer</label><br>
             <h3>Save</h3>
-            <input type="checkbox" id="SaveList" value="1" name="SaveList"><label class="light" for="design">Air bags</label><br>
-            <input type="checkbox" id="SaveList" value="2" name="SaveList"><label class="light" for="design">Sleeping check</label><br>
+            <input type="checkbox" id="SaveList" value="true" name="IsHaveAirBags"><label class="light" for="design">Air bags</label><br>
+            <input type="checkbox" id="SaveList" value="true" name="IsHaveSleepingCheck"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
     </div>
     <input type="submit"value="+Add">
 }
-@*</body>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
