@@ -41,36 +41,67 @@
           text-align: left;
       }
 
-      input[type="text"],
-      input[type="password"],
-      input[type="date"],
-      input[type="datetime"],
-      input[type="email"],
-      input[type="number"],
-      input[type="search"],
-      input[type="tel"],
-      input[type="time"],
-      input[type="url"],
-      textarea,
-      select {
-          background: rgba(255,255,255,0.1);
-          border: none;
-          font-size: 16px;
-          height: auto;
-          margin: 0;
-          outline: 0;
-          padding: 15px;
-          width: 100%;
-          background-color: #e8eeef;
-          color: #160C32;
-          box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset;
-          margin-bottom: 3%;
-      }
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        height: auto !important;
+        color: none !important;
+        box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #241455 !important;
+        padding: 14px 10px !important;
+        width: 200px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+    }
+
+        input[type = "text"]:focus, input[type = "password"]:focus {
+            width: 280px !important;
+            border-color: #239B7D !important;
+        }
 
       input[type="radio"],
       input[type="checkbox"] {
           margin: 0 1% 1% 0;
       }
+
+
+    input[type = "submit"] {
+        border: 0 !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #239B7D !important;
+        padding: 14px 40px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+        cursor: pointer !important;
+        width: 50% !important;
+    }
+
+        input[type = "submit"]:hover {
+            background: #239B7D !important;
+            color: #331C78 !important;
+            width: 280px !important;
+        }
 
       select {
           padding: 6px;
@@ -93,10 +124,14 @@
           margin-bottom: 5%;
       }
 
-      fieldset {
-          margin-bottom: 3%;
-          border: none;
-      }
+    fieldset {
+        margin-bottom: 3%;
+        border: none;
+        font-family: 'Nunito', sans-serif;
+        color: #384047;
+        width: 90% !important;
+        margin: 0 0 0 0 !important;
+    }
 
       legend {
           font-size: 1.4em;
@@ -165,7 +200,7 @@
         <span asp-validation-for="Password" class="text-danger"></span>
         <input asp-for="City" class="form-control" placeholder="City" />
         <span asp-validation-for="City" class="text-danger"></span>
-        <input type="submit" name="submit" class="submit action-button" value="CREATE" />
+        <input type="submit" name="submit" class="submit action-button" value="Create" />
     </fieldset>
 </form>
 

@@ -5,173 +5,208 @@
 }
 <style>
     *, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 
-html {
+    html {
+        /*Image only BG fallback*/
+        /*background = gradient + image pattern combo*/
+    }
 
-	/*Image only BG fallback*/
+    body {
+        font-family: 'Nunito', sans-serif;
+        color: #384047;
+    }
 
-	/*background = gradient + image pattern combo*/
+    form {
+        max-width:900px;
+            margin: 4% auto;
+        padding: 10px 20px;
+        background: #D3C8F5;
+        border-radius: 8px;
+        
+    }
 
+    h1 {
+        margin: 0 0 5% 0;
+        text-align: center;
+    }
 
-}
+    h3 {
+        margin: 2% 0 4% 0;
+        text-align: center;
+    }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  color: #384047;
-}
+    h4 {
+        margin: 4% 0 2% 0;
+        text-align: left;
+    }
 
-form {
-  max-width: 300px;
-  margin: 4% auto;
-  padding: 10px 20px;
-  background: #D3C8F5;
-  border-radius: 8px;
-}
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        height: auto !important;
+        color: none !important;
+        box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #241455 !important;
+        padding: 14px 10px !important;
+        width: 200px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+    }
 
-h1 {
-  margin: 0 0 5% 0;
-  text-align: center;
-}
-h3 {
-  margin: 2% 0 4% 0;
-  text-align: center;
-}
-h4 {
-  margin: 4% 0 2% 0;
-  text-align: left;
-}
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-textarea,
-select {
-  background: rgba(255,255,255,0.1);
-  border: none;
-  font-size: 16px;
-  height: auto;
-  margin: 0;
-  outline: 0;
-  padding: 15px;
-  width: 100%;
-  background-color: #e8eeef;
-  color: #160C32 ;
-  box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset;
-  margin-bottom: 3%;
-}
+        input[type = "text"]:focus,
+        input[type = "password"]:focus
+        input[type="date"]:focus,
+        input[type="datetime"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus {
+            width: 280px !important;
+            border-color: #239B7D !important;
+        }
 
     input[type="radio"],
     input[type="checkbox"] {
-        margin-top: 2.5%;
+        margin-top: 3%;
         margin-left: 2.5%;
+        margin-right: 2.5%;
         transform: scale(2);
         opacity: 0.9;
         cursor: pointer;
-
     }
-/*        input[type="checkbox"]:checked {
+        /*        input[type="checkbox"]:checked {
             background: radial-gradient(rgba(36, 20, 85, 1), rgba(22, 12, 50, 1));
         }*/
         input[type="radio"]:checked,
         input[type="checkbox"]:checked {
             transform: scale(2.5);
-         
         }
 
-select {
-  padding: 6px;
-  height: 32px;
-  border-radius: 2px;
-}
+    input[type = "submit"] {
+        border: 0 !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #239B7D !important;
+        padding: 14px 40px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+        cursor: pointer !important;
+        width: 50% !important;
+    }
 
-button {
-  padding: 19px 39px 18px 39px;
-  color: #FFF;
-  background-color: #239B7D;
-  font-size: 18px;
-  text-align: center;
-  font-style: normal;
-  border-radius: 5px;
-  width: 100%;
-  border: 1px solid #331C78 ;
-  border-width: 1px 1px 3px;
-  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-  margin-bottom: 5%;
-}
+        input[type = "submit"]:hover {
+            background: #239B7D !important;
+            color: #331C78 !important;
+            width: 280px !important;
+        }
 
-fieldset {
-  margin-bottom: 3%;
-  border: none;
-}
+    
 
-legend {
-  font-size: 1.4em;
-  margin-bottom: 4%;
-}
+    select {
+        padding: 6px;
+        height: 32px;
+        border-radius: 2px;
+    }
 
-label {
-  display: block;
-  margin-bottom: 2%;
-}
+    button {
+        padding: 19px 39px 18px 39px;
+        color: #FFF;
+        background-color: #239B7D;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #331C78;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+        margin-bottom: 5%;
+    }
 
-label.light {
-  font-weight: 300;
-  display: inline;
-}
+    fieldset {
+        margin-bottom: 3%;
+        border: none;
+        width:30%
+    }
 
-.number {
-  background-color: #239B7D;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  font-size: 0.8em;
-  margin-right: 4px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-  border-radius: 100%;
-}
+    legend {
+        font-size: 1.4em;
+        margin-bottom: 4%;
+    }
 
-  form {
-    max-width: 480px;
-  }
+    label {
+        display: block;
+        margin-bottom: 2%;
+    }
+
+        label.light {
+            font-weight: 300;
+            display: inline;
+        }
+
+    .number {
+        background-color: #239B7D;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 0.8em;
+        margin-right: 4px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+        border-radius: 100%;
+    }
 
     label {
         font-size: 20px;
         margin-left: 4%;
         font-weight: 200;
     }
-
+    
 </style>
 
-@*<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Car</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>*@
-
-    @using (Html.BeginForm("Create", "Car", FormMethod.Post))
-    {
-        @Html.ValidationSummary();
-        <h1> Create Car</h1>
+@using (Html.BeginForm("Create", "Car", FormMethod.Post))
+{
+    <h1> Create Car</h1>
+    <div class="row" style="display:flex; text-align:center">
+        <div style="width:33%;display:flex; justify-content:space-around">
+            <legend><span class="number">1</span>Basic info</legend>
+        </div>
+        <div  style="width:66%;display:flex; text-align:center">
+            <legend><span class="number">2</span>Configuration</legend>
+        </div>
+    </div>
+    <div class="row" style="display:flex; justify-content:space-around">
 
         <fieldset>
-            <legend><span class="number">1</span>Basic info</legend>
+         
 
             <input type="number" name="CarPrice" placeholder="Car Price" />
             <input type="number" name="RunRange" placeholder="Run Range" />
@@ -181,6 +216,7 @@ label.light {
 
             <h4>Brend:</h4>
             <select id="brend" name="CarBrend">
+
                 <option value="Audi">Audi</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Dodge">Dodge</option>
@@ -197,7 +233,6 @@ label.light {
         </fieldset>
 
         <fieldset>
-            <legend><span class="number">2</span>Configuration</legend>
             <h3>Transmistion</h3>
             <select id="GearBox" name="GearBoxType">
                 <option value="1">Gb 1</option>
@@ -217,11 +252,11 @@ label.light {
                 <option value="Body2">Body 2</option>
                 <option value="Body3">Body 3</option>
             </select>
-            
+
             <input type="number" name="DoorsCount" placeholder="Doors count" />
 
             <h3>Engine</h3>
-            
+
 
             <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
             <input type="number" name="CylinderCount" placeholder="Cylinder count" />
@@ -249,9 +284,9 @@ label.light {
                 <option value="Bi turbo">Bi turbo</option>
             </select>
 
+        </fieldset>
 
-
-
+        <fieldset>
             <h3>Comfort</h3>
             <input type="checkbox" id="ComfortList" value="true" name="IsHaveCondicioner"><label class="light" for="development">Conditioner</label><br>
             <input type="checkbox" id="ComfortList" value="true" name="IsHaveSeatsHeating"><label class="light" for="development">Seats heating</label><br>
@@ -267,9 +302,9 @@ label.light {
             <input type="checkbox" id="SaveList" value="true" name="IsHaveAirBags"><label class="light" for="design">Air bags</label><br>
             <input type="checkbox" id="SaveList" value="true" name="IsHaveSleepingCheck"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
-        <button type="submit">+ADD</button>
-    }
-@*</body>*@
+    </div>
+    <input type="submit"value="+Add">
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
