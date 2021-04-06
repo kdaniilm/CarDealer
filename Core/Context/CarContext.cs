@@ -20,7 +20,7 @@ namespace Core.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Engine> Engines { get; set; }
         public DbSet<ShowContacts> ShowContacts { get; set; }
-        public DbSet<UserCarBuff> userCarBuffs { get; set; }
+        public DbSet<UserCarBuff> UserCarBuffs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using BLL.Service.Interfaces;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc;
 using MVC_IDENTITY_EXAMPLE_UI_.Models;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers

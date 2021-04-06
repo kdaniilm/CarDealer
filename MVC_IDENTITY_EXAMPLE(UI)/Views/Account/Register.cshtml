@@ -188,10 +188,8 @@
 
 </style>
 
-<form id="msform">
-    <!-- progressbar -->
-    
-    <!-- fieldsets -->
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
     <fieldset>
         <h2 class="fs-title">Create your account</h2>
         <input asp-for="Login" class="form-control" placeholder="Login" />
@@ -202,7 +200,7 @@
         <span asp-validation-for="City" class="text-danger"></span>
         <input type="submit" name="submit" class="submit action-button" value="Create" />
     </fieldset>
-</form>
+}
 
 
 @section Scripts {
