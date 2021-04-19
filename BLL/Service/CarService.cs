@@ -45,7 +45,7 @@ namespace BLL.Service
         }
         public async Task<List<Car>> GetAllCarsAsync(FilterDto filter)
         {
-            var car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
+            var car = await _carContext.Cars.Include(x => x.Engine)./*Where(x => x.IsNew == filter.IsNew).*/ToListAsync();
             return await Task<Car>.Run(() => car);
         }
     }

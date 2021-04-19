@@ -57,7 +57,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_
 
             services.AddAuthentication().AddCookie(op => op.LoginPath = "/Login");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

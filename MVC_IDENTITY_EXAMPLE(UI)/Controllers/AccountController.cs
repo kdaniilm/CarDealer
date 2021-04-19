@@ -102,7 +102,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 
             var link = Url.Action("ChangePassword", "Account",
                 new { guid = token, userEmail = user.Email }, Request.Scheme, Request.Host.Value);
-            await _emailSender.SendEmailAsync(user.Email, "Link ->>>", link);
+            await _emailSender.SendEmailAsync(user.Email, "Link ->>>", "'" + link + "'");
 
             // add Send View 
             return Redirect("/home/index");
