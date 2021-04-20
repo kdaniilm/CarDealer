@@ -22,7 +22,7 @@
     }
 
 
-       input[type="text"],
+    input[type="text"],
     input[type="password"],
     input[type="date"],
     input[type="datetime"],
@@ -81,7 +81,7 @@
         input[type="checkbox"]:checked {
             transform: scale(2.5);
         }
-  
+
     input[type = "button"],
     input[type = "submit"] {
         border: 0 !important;
@@ -97,7 +97,7 @@
         transition: 0.25s !important;
         cursor: pointer !important;
         width: 240px !important;
-    } 
+    }
 
         input[type = "button"]:hover,
         input[type = "submit"]:hover {
@@ -128,8 +128,9 @@
         border-radius: 24px;
         transition: 0.25s;
         cursor: pointer;
-        width: 240px ;
+        width: 240px;
     }
+
         button:hover {
             background: #239B7D !important;
             color: #331C78 !important;
@@ -138,11 +139,11 @@
 
 
 
-        fieldset {
-            margin-bottom: 3%;
-            border: none;
-            width: 30%
-        }
+    fieldset {
+        margin-bottom: 3%;
+        border: none;
+        width: 30%
+    }
 
     legend {
         font-size: 1.4em;
@@ -178,51 +179,78 @@
         margin-left: 4%;
         font-weight: 200;
     }
-    
 </style>
 
- 
-        <form>
-      
-                <div class="row">
-                    <button >All</button>
-                    <button >New</button>
-                    <button >Used</button>
-                </div>
-                <div class="row">
-                    <select name="CarBodyType">
-                        <option value="All">All</option>
-                        <option value="Body1">Body1</option>
-                        <option value="Body2">Body2</option>
-                    </select>
-                    <select name="CarBrend">
-                        <option value="All">All</option>
-                        <option value="Brend1">Brend1</option>
-                        <option value="Brend2">Brend2</option>
-                    </select>
-                    <select name="CarModel">
-                        <option value="All">All</option>
-                        <option value="Model1">Model1</option>
-                        <option value="Model2">Model2</option>
-                    </select>
-                    <input type="button" value="BiggestSearch" />
-                </div>
-           
-       
-            
-                <div class="row">
-                    <select name="StartYear">
-                        <option value="All">All</option>
-                        <option value="Year1">Year1</option>
-                        <option value="Year2">Year2</option>
-                    </select>
-                    <select name="EndYear">
-                        <option value="All">All</option>
-                        <option value="Year1">Year1</option>
-                        <option value="Year2">Year2</option>
-                    </select>
-                    <input id="SearchBtnId" type="button" value="Search" />
-                </div>
-       
-        </form>
+@using (Html.BeginForm("Index", "Car", FormMethod.Post))
+{
+<div class="row">
+    <select name="IsNew" >
+        <option value="null">All</option>
+        <option value="true">New</option>
+        <option value="false">Used</option>
+    </select>
+</div>
+<div class="row">
+    <select name="BodyType">
+        <option value="All">All</option>
+        <option value="Body1">Body1</option>
+        <option value="Body2">Body2</option>
+    </select>
+    <select name="BrendName">
+        <option value="All">All</option>
+        <option value="Brend1">Brend1</option>
+        <option value="Brend2">Brend2</option>
+    </select>
+    <select name="ModelName">
+        <option value="All">All</option>
+        <option value="Model1">Model1</option>
+        <option value="Model2">Model2</option>
+    </select>
+    <input type="button" value="BiggestSearch" />
+</div>
+<div class="row">
+    <select name="StartYear">
+        <option value="All">All</option>
+        <option value="Year1">Year1</option>
+        <option value="Year2">Year2</option>
+    </select>
+    <select name="EndYear">
+        <option value="All">All</option>
+        <option value="Year1">Year1</option>
+        <option value="Year2">Year2</option>
+    </select>
+    <input id="SearchBtnId" type="submit" value="Search" />
+</div>
+}
+@*@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        var filter = new Object();
+        $('#SearchBtnId').click(function () {
+
+            filter.IsNew = $("select[name='IsNew']").val();
+            filter.BodyType = $("select[name='BodyType']").val();
+            filter.BrendName = $("select[name='BrendName']").val();
+            filter.ModelName = $("select[name='ModelName']").val();
+            filter.StartYear = $("select[name='StartYear']").val();
+            filter.EndYear = $("select[name='EndYear']").val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Content("~/Car/GetCarRedirect")',
+                    data: filter,
+                    success: function (data) {
+                        alert("succses")
+                    },
+                    error: function (data) {
+                        alert(data.responseText)
+                    }
+                });
+            });
+    </script>
+}*@
+
 

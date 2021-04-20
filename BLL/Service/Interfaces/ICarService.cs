@@ -11,9 +11,9 @@ namespace BLL.Service.Interfaces
 {
     public interface ICarService
     {
-        Task AddCarAsync(Car car);
-        Task<List<Car>> GetAllCarsAsync();
+        Task AddCarAsync(Car car, User user);
+        Task<List<Car>> GetAllCarsAsync(FilterDto filter);
         Task<Car> GetCarAsync(int Id);
-        Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter);
+        //Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter);
     }
 }
