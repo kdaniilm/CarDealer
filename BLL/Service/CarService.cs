@@ -114,13 +114,10 @@ namespace BLL.Service
             #endregion //await CarConfigureAsync(carDto);
             await _carContext.Cars.AddAsync(car);
             await _carContext.SaveChangesAsync();
+            var userCarBuff = new UserCarBuff() { Car = car, CarOvner = user };
+            await _carContext.UserCarBuffs.AddAsync(userCarBuff);
+            await _carContext.SaveChangesAsync();
         }
-        //public async Task<List<Car>> GetAllCarsAsync()
-        //{
-        //    var cars = await _carContext.Cars.Include(x => x.Engine).ToListAsync();
-        //    return cars;
-        //}
-
         public async Task<Car> GetCarAsync(int Id)
         {
             var car = await _carContext.Cars.FindAsync(Id);
