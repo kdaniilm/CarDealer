@@ -8,7 +8,7 @@ namespace BLL.Dto
 {
     public class FilterDto
     {
-        public bool IsNew { get; set; }
+        public bool? IsNew { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
         public int MinRange { get; set; }

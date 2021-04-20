@@ -115,11 +115,11 @@ namespace BLL.Service
             await _carContext.Cars.AddAsync(car);
             await _carContext.SaveChangesAsync();
         }
-        public async Task<List<Car>> GetAllCarsAsync()
-        {
-            var cars = await _carContext.Cars.Include(x => x.Engine).ToListAsync();
-            return cars;
-        }
+        //public async Task<List<Car>> GetAllCarsAsync()
+        //{
+        //    var cars = await _carContext.Cars.Include(x => x.Engine).ToListAsync();
+        //    return cars;
+        //}
 
         public async Task<Car> GetCarAsync(int Id)
         {
@@ -128,7 +128,16 @@ namespace BLL.Service
         }
         public async Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter)
         {
+<<<<<<< Updated upstream
             var car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
+=======
+            var car = new List<Car>();
+            if (filter.IsNew != null)
+                car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
+            else
+                car = await _carContext.Cars.Include(x => x.Engine).ToListAsync();
+
+>>>>>>> Stashed changes
             return await Task<Car>.Run(() => car);
         }
     }
