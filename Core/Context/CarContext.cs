@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Core.Context
 {
@@ -14,6 +16,8 @@ namespace Core.Context
         public CarContext(DbContextOptions<CarContext> options):base(options)
         {
             Database.EnsureCreated();
+            //var databaseCreator = (Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator);
+            //databaseCreator.CreateTables();
         }
         public DbSet<ImagePath> ImagePaths { get; set; }
         public DbSet<Car> Cars { get; set; }

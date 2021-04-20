@@ -1,4 +1,224 @@
-@model string
+@model IEnumerable<Domain.Model.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        color: #384047;
+    }
+
+    form {
+        max-width: 900px;
+        margin: 4% auto;
+        padding: 10px 20px;
+        background: #D3C8F5;
+        border-radius: 8px;
+    }
+
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea,
+    select {
+        font-size: 16px !important;
+        height: auto !important;
+        color: none !important;
+        box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #241455 !important;
+        padding: 14px 10px !important;
+        width: 200px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+    }
+
+        input[type = "text"]:focus,
+        input[type = "password"]:focus
+        input[type="date"]:focus,
+        input[type="datetime"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus {
+            width: 280px !important;
+            border-color: #239B7D !important;
+        }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-top: 3%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        transform: scale(2);
+        opacity: 0.9;
+        cursor: pointer;
+    }
+        /*        input[type="checkbox"]:checked {
+            background: radial-gradient(rgba(36, 20, 85, 1), rgba(22, 12, 50, 1));
+        }*/
+        input[type="radio"]:checked,
+        input[type="checkbox"]:checked {
+            transform: scale(2.5);
+        }
+
+    input[type = "button"],
+    input[type = "submit"] {
+        border: 0 !important;
+        background: none !important;
+        display: block !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        border: 2px solid #239B7D !important;
+        padding: 14px 40px !important;
+        outline: none !important;
+        color: #331C78 !important;
+        border-radius: 24px !important;
+        transition: 0.25s !important;
+        cursor: pointer !important;
+        width: 240px !important;
+    }
+
+        input[type = "button"]:hover,
+        input[type = "submit"]:hover {
+            background: #239B7D !important;
+            color: #331C78 !important;
+            width: 280px !important;
+        }
+
+
+
+
+    select {
+        padding: 6px;
+        height: 32px;
+        border-radius: 2px;
+    }
+
+    button {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #239B7D;
+        padding: 14px 40px;
+        outline: none;
+        color: #331C78;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+        width: 240px;
+    }
+
+        button:hover {
+            background: #239B7D !important;
+            color: #331C78 !important;
+            width: 280px !important;
+        }
+
+
+
+    fieldset {
+        margin-bottom: 3%;
+        border: none;
+        width: 30%
+    }
+
+    legend {
+        font-size: 1.4em;
+        margin-bottom: 4%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 2%;
+    }
+
+        label.light {
+            font-weight: 300;
+            display: inline;
+        }
+
+    .number {
+        background-color: #239B7D;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 0.8em;
+        margin-right: 4px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+        border-radius: 100%;
+    }
+
+    label {
+        font-size: 20px;
+        margin-left: 4%;
+        font-weight: 200;
+    }
+</style>
+<form>
+    <div id="FilterDivId">
+        <div class="row">
+            <select name="IsNew">
+                <option value="null">All</option>
+                <option value="true">New</option>
+                <option value="false">Used</option>
+            </select>
+        </div>
+        <div class="row">
+            <select name="BodyType">
+                <option value="All">All</option>
+                <option value="Body1">Body1</option>
+                <option value="Body2">Body2</option>
+            </select>
+            <select name="BrendName">
+                <option value="All">All</option>
+                <option value="Brend1">Brend1</option>
+                <option value="Brend2">Brend2</option>
+            </select>
+            <select name="ModelName">
+                <option value="All">All</option>
+                <option value="Model1">Model1</option>
+                <option value="Model2">Model2</option>
+            </select>
+            <input type="button" value="BiggestSearch" />
+        </div>
+        <div class="row">
+            <select name="StartYear">
+                <option value="All">All</option>
+                <option value="Year1">Year1</option>
+                <option value="Year2">Year2</option>
+            </select>
+            <select name="EndYear">
+                <option value="All">All</option>
+                <option value="Year1">Year1</option>
+                <option value="Year2">Year2</option>
+            </select>
+            <input id="SearchBtnId" type="button" value="Search" />
+        </div>
+    </div>
+</form>
 <style>
     h1, h2, h3, h4, p {
         color: white
@@ -7,26 +227,34 @@
 <div id="AllCarsDivId" class="row">
 
 </div>
-<input type="button" id="CarLoadBtn" value="Load cars" />
 @section Scripts
-{
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-    <script>
-        $('#CarLoadBtn').click(function () {
-            var filter = JSON.parse(@Model);
-            $.ajax({
-                    type: 'POST',
-                    url: '@Url.Content("~/Car/GetCarPartial")',
-                    data:  filter,
-                    success: function (data) {
-                        $('#AllCarsDivId').html(data);
-                    },
-                    error: function (data) {
-                        alert(data.responseText)
-                    }
+    {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script>
+            var filter = new Object();
+            $('#SearchBtnId').click(function () {
+
+                filter.IsNew = $("select[name='IsNew']").val();
+                filter.BodyType = $("select[name='BodyType']").val();
+                filter.BrendName = $("select[name='BrendName']").val();
+                filter.ModelName = $("select[name='ModelName']").val();
+                filter.StartYear = $("select[name='StartYear']").val();
+                filter.EndYear = $("select[name='EndYear']").val();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/Car/GetCarPartial")',
+                        data: filter,
+                        success: function (data) {
+                            $("#FilterDivId").html("");
+                            $("#AllCarsDivId").html(data);
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
                 });
-            });
-    </script>
+        </script>
     }

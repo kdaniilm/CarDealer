@@ -21,19 +21,16 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             this._carService = carService;
             this._mapper = mapper;
         }
+        [HttpPost]
         public async Task<ActionResult> GetCarPartialAsync(FilterViewModel filter)
         {
             var filterDto = _mapper.Map<FilterDto>(filter);
             var cars = await _carService.GetAllCarsAsync(filterDto);
             return PartialView("GetCarPartial", cars);
         }
-        [HttpPost]
-        public async Task<ActionResult> Index(FilterViewModel filter)
-        {
-            var jsonFilter = JsonConvert.SerializeObject(filter);
-            jsonFilter = jsonFilter.Replace('"', ' ');
-            return await Task.Run(() => View("Index", jsonFilter));
-        }
+        [HttpGet]
+        public async Task<ActionResult> Index() =>  await Task.Run(() => View());
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult> Create() => await Task.Run(() => View());
