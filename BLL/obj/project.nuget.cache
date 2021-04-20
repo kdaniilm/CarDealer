@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "YDcUSiKnaYqJBKKTFFd2lbmySNNrf9ar5NBtRhVa9Z0euiq1FuOvz81UQ9viQ7g2VKSQZ4fF7ZU1cCl7SwZwew==",
-=======
   "dgSpecHash": "8ocQqq+pOzLLJ5taQym33M9eI638Be5KQjDircY8nFidvv836BsOK8o2E+tvcQmyiH+WH2fRQV3PavBBtknIPw==",
->>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\BLL.csproj",
   "expectedPackageFiles": [

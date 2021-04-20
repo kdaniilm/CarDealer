@@ -24,7 +24,7 @@ namespace BLL.Service
             this._mapper = mapper;
         }
 
-        public async Task AddCarAsync(Car car)
+        public async Task AddCarAsync(Car car, User user)
         {
             #region old method
             //var createCountry = new CreateCountry() { CountryName = "Japan" };
@@ -126,18 +126,14 @@ namespace BLL.Service
             var car = await _carContext.Cars.FindAsync(Id);
             return car;
         }
-        public async Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter)
+        public async Task<List<Car>> GetAllCarsAsync(FilterDto filter)
         {
-<<<<<<< Updated upstream
-            var car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
-=======
             var car = new List<Car>();
             if (filter.IsNew != null)
                 car = await _carContext.Cars.Include(x => x.Engine).Where(x => x.IsNew == filter.IsNew).ToListAsync();
             else
                 car = await _carContext.Cars.Include(x => x.Engine).ToListAsync();
 
->>>>>>> Stashed changes
             return await Task<Car>.Run(() => car);
         }
     }

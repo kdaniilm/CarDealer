@@ -14,6 +14,5 @@ namespace BLL.Service.Interfaces
         Task AddCarAsync(Car car, User user);
         Task<List<Car>> GetAllCarsAsync(FilterDto filter);
         Task<Car> GetCarAsync(int Id);
-        //Task<List<Car>> GetCarsWithFilterAsync(FilterDto filter);
     }
 }
