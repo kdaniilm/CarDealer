@@ -5,10 +5,12 @@ using BLL.Dto;
 using MVC_IDENTITY_EXAMPLE_UI_.Models;
 using AutoMapper;
 using Domain.Model;
+using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using System;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {
-    //[Authorize]
     public class CarController : Controller
     {
         private readonly CarService _carService;
@@ -19,28 +21,29 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             this._carService = carService;
             this._mapper = mapper;
         }
-
+        [HttpPost]
         public async Task<ActionResult> GetCarPartialAsync(FilterViewModel filter)
         {
             var filterDto = _mapper.Map<FilterDto>(filter);
-            var cars = await _carService.GetCarsWithFilterAsync(filterDto);
+            var cars = await _carService.GetAllCarsAsync(filterDto);
             return PartialView("GetCarPartial", cars);
         }
-        public async Task<ActionResult> Index()
-        {
-            return await Task.Run(() => View());
-        }
         [HttpGet]
+        public async Task<ActionResult> Index() =>  await Task.Run(() => View());
+
+        [HttpGet]
+        [Authorize]
         public async Task<ActionResult> Create() => await Task.Run(() => View());
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<ActionResult> Create(CarViewModel carVM, string isNewCheckBoxAnswer)
+        public async Task<ActionResult> Create(CarViewModel carVM)
         {
             if (ModelState.IsValid)
             {
                 var car = _mapper.Map<Car>(carVM);
-                await _carService.AddCarAsync(car);
+                var user = new User() { UserName = User.Identity.Name};
+                await _carService.AddCarAsync(car, user);
             }
             return RedirectToAction(nameof(Index));
         }

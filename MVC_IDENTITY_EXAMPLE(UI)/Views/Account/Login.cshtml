@@ -212,7 +212,8 @@
 
 </style>
 
-<form id="msform">
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { Id = "msform" }))
+{
     <!-- progressbar -->
     <!-- fieldsets -->
     <fieldset>
@@ -247,7 +248,7 @@
         </form>
 
     </fieldset>
-</form>
+}
 
 
 

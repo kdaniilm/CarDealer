@@ -37,5 +37,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public decimal MidleСonsumption { get; set; }
         public int MaxPower { get; set; }
         public int MaxTorque { get; set; }
+        public int StartYear { get; set; }
+        public int EndYear { get; set; }
     }
 }
