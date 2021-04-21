@@ -7,37 +7,37 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
 {
     public class FilterViewModel
     {
-        public bool? IsNew { get; set; }
-        public decimal MinPrice { get; set; }
-        public decimal MaxPrice { get; set; }
-        public int MinRange { get; set; }
-        public int MaxRange { get; set; }
-        public string CreateCountryName { get; set; }
-        public string BrendName { get; set; }
-        public string ModelName { get; set; }
-        public string GearBoxType { get; set; }
-        public string DriverianType { get; set; }
-        public string PetrolType { get; set; }
-        public string BodyType { get; set; }
+        public bool? IsNew { get; set; } //select``
+        public decimal MinPrice { get; set; } //number``
+        public decimal MaxPrice { get; set; } //number``
+        public int MinRange { get; set; }//number``
+        public int MaxRange { get; set; }//number``
+        public string CreateCountryName { get; set; } //select``
+        public string BrendName { get; set; } //select``
+        public string ModelName { get; set; }//select``
+        public string GearBoxType { get; set; }//select``
+        public string DriverianType { get; set; }//select``
+        public string PetrolType { get; set; }//select``
+        public string BodyType { get; set; }//select``
         #region Configuration
-        public bool IsHaveCondicioner { get; set; }
-        public bool IsHaveSeatsHeating { get; set; }
-        public bool IsHaveCruiseControl { get; set; }
-        public bool IsHaveGarageSaving { get; set; }
-        public bool IsHaveDontHit { get; set; }
-        public bool IsHaveFirstOwner { get; set; }
-        public bool IsHaveMp3 { get; set; }
-        public bool IsHaveSubbufer { get; set; }
-        public bool IsHaveAirBags { get; set; }
-        public bool IsHaveSleepingCheck { get; set; }
+        public bool IsHaveCondicioner { get; set; } //chekbox
+        public bool IsHaveSeatsHeating { get; set; }//chekbox
+        public bool IsHaveCruiseControl { get; set; }//chekbox
+        public bool IsHaveGarageSaving { get; set; }//chekbox
+        public bool IsHaveDontHit { get; set; }//chekbox
+        public bool IsHaveFirstOwner { get; set; }//chekbox
+        public bool IsHaveMp3 { get; set; }//chekbox
+        public bool IsHaveSubbufer { get; set; }//chekbox
+        public bool IsHaveAirBags { get; set; }//chekbox
+        public bool IsHaveSleepingCheck { get; set; }//chekbox
         #endregion
-        public int DoorsCount { get; set; }
-        public decimal CityСonsumption { get; set; }
-        public decimal AutobanСonsumption { get; set; }
-        public decimal MidleСonsumption { get; set; }
-        public int MaxPower { get; set; }
-        public int MaxTorque { get; set; }
-        public int StartYear { get; set; }
-        public int EndYear { get; set; }
+        public int DoorsCount { get; set; } //number``
+        public decimal CityСonsumption { get; set; } //number
+        public decimal AutobanСonsumption { get; set; } //number
+        public decimal MidleСonsumption { get; set; } //number
+        public int MaxPower { get; set; } //number
+        public int MaxTorque { get; set; } //number
+        public int StartYear { get; set; } //number
+        public int EndYear { get; set; } //number
     }
 }

@@ -1,9 +1,16 @@
 ﻿@model CarViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Biggest Search";
 }
+@*slider*@
+
+
 <style>
+
+
+
+
     *, *:before, *:after {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -21,12 +28,12 @@
     }
 
     form {
-        max-width:900px;
-            margin: 4% auto;
+        margin: 4% auto;
+        width:120%;
+        margin-left: -10%;
         padding: 10px 20px;
         background: #D3C8F5;
         border-radius: 8px;
-        
     }
 
     h1 {
@@ -44,6 +51,10 @@
         text-align: left;
     }
 
+    input[type="number"] {
+        height: 40px !important;
+    }
+
     input[type="text"],
     input[type="password"],
     input[type="date"],
@@ -57,7 +68,7 @@
     textarea,
     select {
         font-size: 16px !important;
-        height: auto !important;
+        height: 50px !important;
         color: none !important;
         box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
         background: none !important;
@@ -86,7 +97,9 @@
             width: 280px !important;
             border-color: #239B7D !important;
         }
-
+    input[type="number"] {
+        height: 40px !important;
+    }
     input[type="radio"],
     input[type="checkbox"] {
         margin-top: 3%;
@@ -113,20 +126,20 @@
         border: 2px solid #239B7D !important;
         padding: 14px 40px !important;
         outline: none !important;
-        color: #331C78 !important;
+        color: #239B7D !important;
         border-radius: 24px !important;
         transition: 0.25s !important;
         cursor: pointer !important;
-        width: 50% !important;
+        width: 200px !important;
     }
 
         input[type = "submit"]:hover {
             background: #239B7D !important;
             color: #331C78 !important;
-            width: 280px !important;
+            width: 300px !important;
         }
 
-    
+
 
     select {
         padding: 6px;
@@ -136,7 +149,7 @@
 
     button {
         padding: 19px 39px 18px 39px;
-        color: #FFF;
+        color: #239B7D;
         background-color: #239B7D;
         font-size: 18px;
         text-align: center;
@@ -152,7 +165,7 @@
     fieldset {
         margin-bottom: 3%;
         border: none;
-        width:30%
+        width: 20%
     }
 
     legend {
@@ -189,41 +202,68 @@
         margin-left: 4%;
         font-weight: 200;
     }
-    
 </style>
+
+
+
 
 @using (Html.BeginForm("Create", "Car", FormMethod.Post))
 {
-    <h1> Create Car</h1>
+
     <div class="row" style="display:flex; text-align:center">
-        <div style="width:33%;display:flex; justify-content:space-around">
+        <div style="width:25%;display:flex; justify-content:space-around">
             <legend><span class="number">1</span>Basic info</legend>
         </div>
-        <div  style="width:66%;display:flex; text-align:center">
-            <legend><span class="number">2</span>Configuration</legend>
+        <div style="width:25%;display:flex; justify-content:space-around">
+            <legend><span class="number">2</span>Types</legend>
+        </div>
+        <div style="width:25%;display:flex; justify-content:space-around">
+            <legend><span class="number">3</span>Else search</legend>
+        </div>
+        <div style="width:25%;display:flex; text-align:center">
+            <legend><span class="number">4</span>Custom</legend>
         </div>
     </div>
     <div class="row" style="display:flex; justify-content:space-around">
 
         <fieldset>
-         
 
-            <input type="number" name="CarPrice" placeholder="Car Price" />
-            <input type="number" name="RunRange" placeholder="Run Range" />
+
+
+
+
+            <h5>Price:</h5>
+            <input type="number" name="MinPrice" placeholder="Min Price" />
+            <input type="number" name="MaxPrice" placeholder="Max Price" />
+
 
             <input type="checkbox" value="true" name="isNew"><label class="light">New Car</label><br>
+            <h5>Range:</h5>
+
+            <input type="number" name="MinRange" placeholder="Min Range" />
+            <input type="number" name="MaxRange" placeholder="Max Range" />
 
 
-            <h4>Brand:</h4>
+
+            <select id="CreateCountryName" name="CreateCountryName">
+                <option selected value="null">All countries</option>
+
+                <option value="USA">USA</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Japan">Japan</option>
+                <option value="Germany">Germany</option>
+            </select>
             <select id="brend" name="CarBrend">
+                <option selected value="null">All brands</option>
 
                 <option value="Audi">Audi</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Dodge">Dodge</option>
                 <option value="Bentley">Bentley</option>
             </select>
-            <h4>Model:</h4>
             <select id="model" name="ModelName">
+                <option selected value="null">All models</option>
+
                 <option value="RS3">RS3</option>
                 <option value="GT-R">GT-R</option>
                 <option value="Durando">Durando</option>
@@ -233,77 +273,68 @@
         </fieldset>
 
         <fieldset>
-            <h3>Transmistion</h3>
-            <select id="GearBox" name="GearBoxType">
-                <option value="1">Gb 1</option>
-                <option value="2">Gb 2</option>
-                <option value="3">Gb 3</option>
+            <h4>GearBoxType</h4>
+            <select id="GearBoxType" name="GearBoxType">
+                <option selected value="null">All types</option>
+                <option value="1">Type A</option>
+                <option value="2">Tupe B</option>
+                <option value="3">Type C</option>
             </select>
-            <input type="number" name="GearCount" placeholder="Gear count" />
-            <select id="Driverian" name="DriverianType">
-                <option value="1">Dv 1</option>
-                <option value="2">Dv 2</option>
-                <option value="3">Dv 3</option>
+            <h4>DriverianType</h4>
+            <select id="DriverianType" name="DriverianType">
+                <option selected value="null">All types</option>
+                <option value="1">Type A</option>
+                <option value="2">Tupe B</option>
+                <option value="3">Type C</option>
             </select>
+            <h4>PetrolType</h4>
+            <select id="PetrolType" name="PetrolType">
+                <option selected value="null">All types</option>
+                <option value="1">Type A</option>
+                <option value="2">Tupe B</option>
+                <option value="3">Type C</option>
+            </select>
+            <h4>BodyType</h4>
+            <select id="BodyType" name="BodyType">
+                <option selected value="null">All types</option>
+                <option value="1">Type A</option>
+                <option value="2">Tupe B</option>
+                <option value="3">Type C</option>
+            </select>
+        </fieldset>
 
-            <h3>Body</h3>
-            <select id="GearBox" name="BodyType">
-                <option value="Body1">Body 1</option>
-                <option value="Body2">Body 2</option>
-                <option value="Body3">Body 3</option>
-            </select>
 
+        <fieldset>
             <input type="number" name="DoorsCount" placeholder="Doors count" />
-
-            <h3>Engine</h3>
-
-
-            <input type="number" name="Volume" placeholder="Engine volume(in mililiters)" />
-            <input type="number" name="CylinderCount" placeholder="Cylinder count" />
-            <select id="Petrol" name="PetrolType">
-                <option value="Petrol">Petrol</option>
-                <option value="Gas/Petrol">Gas/Petrol</option>
-                <option value="Gas">Gas</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Hibrid">Hibrid</option>
-                <option value="Electric">Electric</option>
-            </select>
-            <input type="number" name="MaxPower" placeholder="maxPower" />
-            <input type="number" name="MaxTorque" placeholder="MaxTorque" />
-            <input type="number" name="MaxRpm" placeholder="MaxRpm" />
-            <input type="number" name="MaxPowerRpm" placeholder="MaxPowerRpm" />
-            <input type="number" name="MaxTorqueRpm" placeholder="MaxTorqueRpm" />
             <input type="number" name="CityСonsumption" placeholder="City Сonsumption" />
-            <input type="number" name="AutobanСonsumption" placeholder="Autoban Сonsumption" />
-            <input type="number" name="MidleСonsumption" placeholder="Midle Сonsumption" />
-            <select id="Boost" name="BoostType">
-                <option value="N/A">N/A</option>
-                <option value="Supercharger">Supercharger</option>
-                <option value="Single Turbo">Single Turbo</option>
-                <option value="Twin turbo">Twin turbo</option>
-                <option value="Bi turbo">Bi turbo</option>
-            </select>
+            <input type="number" name="AutobanСonsumption" placeholder="AutobanСonsumption" />
+            <input type="number" name="MidleСonsumption" placeholder="MidleСonsumption" />
+            <input type="number" name="MaxPower" placeholder="MaxPower" />
+            <input type="number" name="MaxTorque" placeholder="MaxTorque" />
+            <input type="number" name="StartYear" placeholder="StartYear" />
+            <input type="number" name="EndYear" placeholder="EndYear" />
 
         </fieldset>
 
+
         <fieldset>
-            <h3>Comfort</h3>
+            <h4>Comfort</h4>
             <input type="checkbox" id="ComfortList" value="true" name="IsHaveCondicioner"><label class="light" for="development">Conditioner</label><br>
             <input type="checkbox" id="ComfortList" value="true" name="IsHaveSeatsHeating"><label class="light" for="development">Seats heating</label><br>
             <input type="checkbox" id="ComfortList" value="true" name="IsHaveCruiseControl"><label class="light" for="development">Cruise control</label><br>
-            <h3>State</h3>
+            <h4>State</h4>
             <input type="checkbox" id="StateList" value="true" name="IsHaveGarageSaving"><label class="light" for="design">Garage saving</label><br>
             <input type="checkbox" id="StateList" value="true" name="IsHaveDontHit"><label class="light" for="design">Dont hit</label><br>
             <input type="checkbox" id="StateList" value="true" name="IsHaveFirstOwner"><label class="light" for="design">First owner</label><br>
-            <h3>Mupti media</h3>
+            <h4>Mupti media:</h4>
             <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveMp3"><label class="light" for="business">MP3</label><br>
             <input type="checkbox" id="MultiMediaList" value="true" name="IsHaveSubbufer"><label class="light" for="business">Subbuffer</label><br>
-            <h3>Save</h3>
+            <h4>Safe:</h4>
             <input type="checkbox" id="SaveList" value="true" name="IsHaveAirBags"><label class="light" for="design">Air bags</label><br>
             <input type="checkbox" id="SaveList" value="true" name="IsHaveSleepingCheck"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
     </div>
-    <input type="submit"value="+Add">
+    <input type="submit"  value="Search">
 }
 
 @section Scripts {

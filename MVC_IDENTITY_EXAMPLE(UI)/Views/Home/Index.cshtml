@@ -13,13 +13,16 @@
         color: #384047;
     }
 
+
     form {
-        max-width: 900px;
         margin: 4% auto;
+        width: 120%;
+        margin-left: -10%;
         padding: 10px 20px;
         background: #D3C8F5;
         border-radius: 8px;
     }
+
 
 
     input[type="text"],
@@ -35,7 +38,7 @@
     textarea,
     select {
         font-size: 16px !important;
-        height: auto !important;
+        height: 50px !important;
         color: none !important;
         box-shadow: 0 0 1px 1px rgba(22, 12, 50, 0.5) inset !important;
         background: none !important;
@@ -92,18 +95,18 @@
         border: 2px solid #239B7D !important;
         padding: 14px 40px !important;
         outline: none !important;
-        color: #331C78 !important;
+        color: #239B7D !important;
         border-radius: 24px !important;
         transition: 0.25s !important;
         cursor: pointer !important;
-        width: 240px !important;
+        width: 90% !important;
     }
 
         input[type = "button"]:hover,
         input[type = "submit"]:hover {
             background: #239B7D !important;
             color: #331C78 !important;
-            width: 280px !important;
+            width: 200px !important;
         }
 
 
@@ -177,50 +180,63 @@
     label {
         font-size: 20px;
         margin-left: 4%;
+        margin-left: 4%;
         font-weight: 200;
     }
 </style>
 
 @using (Html.BeginForm("Index", "Car", FormMethod.Post))
 {
-<div class="row">
-    <select name="IsNew" >
-        <option value="null">All</option>
-        <option value="true">New</option>
-        <option value="false">Used</option>
-    </select>
-</div>
-<div class="row">
-    <select name="BodyType">
-        <option value="All">All</option>
-        <option value="Body1">Body1</option>
-        <option value="Body2">Body2</option>
-    </select>
-    <select name="BrendName">
-        <option value="All">All</option>
-        <option value="Brend1">Brend1</option>
-        <option value="Brend2">Brend2</option>
-    </select>
-    <select name="ModelName">
-        <option value="All">All</option>
-        <option value="Model1">Model1</option>
-        <option value="Model2">Model2</option>
-    </select>
-    <input type="button" value="BiggestSearch" />
-</div>
-<div class="row">
-    <select name="StartYear">
-        <option value="All">All</option>
-        <option value="Year1">Year1</option>
-        <option value="Year2">Year2</option>
-    </select>
-    <select name="EndYear">
-        <option value="All">All</option>
-        <option value="Year1">Year1</option>
-        <option value="Year2">Year2</option>
-    </select>
-    <input id="SearchBtnId" type="submit" value="Search" />
-</div>
+    <div class="row">
+        <div class="col" style="width:19%; background-color: rgba(30,30,30,0.1); border-radius: 12px" >
+
+            <div class="col">
+                <select name="IsNew">
+                    <option selected value="null">All statuses</option>
+                    <option value="true">New</option>
+                    <option value="false">Used</option>
+                </select>
+            </div>
+            <div class="col">
+                <select name="BodyType">
+                    <option selected value="All">All BodyTypes</option>
+                    <option value="Body1">Body1</option>
+                    <option value="Body2">Body2</option>
+                </select>
+                <select name="BrendName">
+                    <option selected value="All">All Brands</option>
+                    <option value="Brend1">Brend1</option>
+                    <option value="Brend2">Brend2</option>
+                </select>
+                <select name="ModelName">
+                    <option selected value="All Models">All Models</option>
+                    <option value="Model1">Model1</option>
+                    <option value="Model2">Model2</option>
+                </select>
+            </div>
+            <div class="col">
+                <select name="StartYear">
+                    <option selected value="All">All StartYears</option>
+                    <option value="Year1">Year1</option>
+                    <option value="Year2">Year2</option>
+                </select>
+                <select name="EndYear">
+                    <option selected value="All">All EndYears</option>
+                    <option value="Year1">Year1</option>
+                    <option value="Year2">Year2</option>
+                </select>
+                <input id="SearchBtnId" type="submit" value="Search" />
+                <input type="button" style="width: 5em; white-space: pre-line;" value="Advanced Search" />
+
+            </div>
+
+
+        </div>
+        <div style="width:81%;       text-align: center;" >
+            <h4>Cars</h4>
+        </div>
+    </div>
+ 
 }
 @*@section Scripts
 {
