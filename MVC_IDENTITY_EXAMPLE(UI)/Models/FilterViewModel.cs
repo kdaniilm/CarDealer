@@ -26,10 +26,10 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public bool IsHaveGarageSaving { get; set; }//chekbox
         public bool IsHaveDontHit { get; set; }//chekbox
         public bool IsHaveFirstOwner { get; set; }//chekbox
-        public bool IsHaveMp3 { get; set; }//chekbox
-        public bool IsHaveSubbufer { get; set; }//chekbox
-        public bool IsHaveAirBags { get; set; }//chekbox
-        public bool IsHaveSleepingCheck { get; set; }//chekbox
+        public bool IsHaveMp3 { get; set; }//chekbox``
+        public bool IsHaveSubbufer { get; set; }//chekbox``
+        public bool IsHaveAirBags { get; set; }//chekbox``
+        public bool IsHaveSleepingCheck { get; set; }//chekbox``
         #endregion
         public int DoorsCount { get; set; } //number``
         public decimal CityСonsumption { get; set; } //number

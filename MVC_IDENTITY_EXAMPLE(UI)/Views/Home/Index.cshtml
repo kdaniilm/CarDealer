@@ -5,7 +5,6 @@
 }
 
 
-
 <style>
 
     body {
@@ -18,8 +17,7 @@
         margin: 4% auto;
         width: 120%;
         margin-left: -10%;
-        padding: 10px 20px;
-        background: #D3C8F5;
+        background: rgba(239, 230, 245,0.9);
         border-radius: 8px;
     }
 
@@ -185,10 +183,226 @@
     }
 </style>
 
+<style>
+
+
+
+
+    .outer {
+        margin: 20px auto;
+        position: relative;
+        background-color: rgba(30,30,30,0.2);
+        height: 250px;
+        width: 450px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    img {
+        position: absolute;
+        top: 0px;
+        right: -20px;
+        z-index: 0;
+        animation-delay: 0.5s;
+    }
+
+    .content {
+        animation-delay: 0.3s;
+        position: absolute;
+        left: 20px;
+        z-index: 3
+    }
+
+    h1 {
+        color: #111;
+        margin-top: 5%
+    }
+
+    p {
+        width: 280px;
+        font-size: 13px;
+        line-height: 1.4;
+        color: rgba(22, 12, 50, 0.5);
+        margin: 20px 0;
+    }
+
+    .bg {
+        display: inline-block;
+        color: #fff;
+        background: #239B7D;
+        padding: 5px 10px;
+        border-radius: 50px;
+        font-size: .7em;
+    }
+
+    .button {
+        width: fit-content;
+        height: fit-content;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+
+        .button a {
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            font-size: 11px;
+            color: #331C78;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid rgba(22, 12, 50, 0.5);
+            font-weight: bold;
+        }
+
+            .button a:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: -10px;
+                width: 0%;
+                background: #239B7D;
+                height: 100%;
+                z-index: -1;
+                transition: width 0.3s ease-in-out;
+                transform: skew(-25deg);
+                transform-origin: right;
+            }
+
+            .button a:hover:after {
+                width: 150%;
+                left: -10px;
+                transform-origin: left;
+            }
+
+            .button a:hover {
+                color: #fff;
+                transition: all 0.5s ease;
+            }
+
+
+            .button a:nth-of-type(1) {
+                border-radius: 50px 0 0 50px;
+                border-right: none;
+            }
+
+            .button a:nth-of-type(2) {
+                border-radius: 0px 50px 50px 0;
+            }
+
+    .cart-icon {
+        padding-right: 8px;
+    }
+</style>
+
+<style>
+  
+
+
+#block-body {
+    width: 1035px;
+    margin: 5px auto;
+    height: 100%;
+}
+header {
+   width: 100%;
+   height: 70px;
+   background-color: rgba(20,20,20,0.9);
+}
+#block-content {
+    width: 1035px;
+    height: 100%;
+    min-height: 500px;
+}
+.logo {
+    width: 200px;
+    float: left;
+    height: 80px;
+}
+.logo a {
+    display: block;
+    margin-left: 15px;
+    margin-top: 19px;
+    font-family: "Exo2-Bold", sans-serif;
+    font-size: 28px;
+    color:  #b2aeb2;
+    text-decoration: none;
+    cursor: pointer;
+    height:100%
+}
+    .use {
+        color: #D3C8F5;
+    }
+    .web {
+        color: #239B7D;
+    }
+.logo p {
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-family:  "Exo2-Medium", sans-serif;
+    font-size: 13px;
+    color: white;
+}
+.top-menu {
+    width: 80%;
+    height: 100%;
+    float: left;
+    
+}
+.top-menu ul li {
+    list-style: none;
+    float: left;
+    text-align: center;
+}
+.top-menu ul li a {
+    display: block;
+    width: 171px;
+    text-decoration: none;
+    font-family:  "Exo2-Medium", sans-serif;
+    font-size: 17px;
+    color: white;
+    height: 100%;
+    padding-top: 25px;
+    cursor: pointer;
+}
+.top-menu ul li a:hover {
+    transition: all 0.5s ease;
+   
+    background: #00ADE4;
+}
+.block-top-auth {
+    width: 100px;
+    float: left;
+    margin-left: 40px;
+    height: 100%;
+}
+.block-top-auth p {
+    margin-top: 12px;
+    text-align: center;
+    margin-bottom: 8px;
+
+}
+.block-top-auth a {
+    text-decoration: none;
+    color: white;
+    font-family:  "Exo2-Medium", sans-serif;
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.block-top-auth a:hover {
+    transition: all 0.5s ease;
+    color: #00ADE4;
+}
+</style>
+    
 @using (Html.BeginForm("Index", "Car", FormMethod.Post))
 {
+
     <div class="row">
-        <div class="col" style="width:19%; background-color: rgba(30,30,30,0.1); border-radius: 12px" >
+        <div class="col" style="width:19%; background-color: rgba(30,30,30,0.1); border-radius: 12px">
 
             <div class="col">
                 <select name="IsNew">
@@ -232,41 +446,59 @@
 
 
         </div>
-        <div style="width:81%;       text-align: center;" >
-            <h4>Cars</h4>
+
+
+
+        <div style="width:81%;       text-align: center;">
+            <div class="wrapper">
+                <div class="outer">
+                    <div class="content animated fadeInLeft">
+                        <span class="bg animated fadeInDown">EXCLUSIVE</span>
+                        <h1>Foking car</h1>
+                        <p>Just buy dat car i know you want it.</p>
+
+                        <div class="button">
+                            <a href="#">$5.000</a><a class="cart-btn" href="#"><i class="cart-icon ion-bag"></i>ADD TO CART</a>
+                        </div>
+
+                    </div>
+                    <img src="http://www.clker.com/cliparts/x/c/q/E/L/j/gray-car-top-view-90-hi.png" height="90%" style="margin-right: 70px; margin-top: 2.5%" class="animated fadeInRight">
+                </div>
+
+            </div>
         </div>
     </div>
- 
+
 }
 @*@section Scripts
-{
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
-    <script>
-        var filter = new Object();
-        $('#SearchBtnId').click(function () {
+    {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script>
+            var filter = new Object();
+            $('#SearchBtnId').click(function () {
 
-            filter.IsNew = $("select[name='IsNew']").val();
-            filter.BodyType = $("select[name='BodyType']").val();
-            filter.BrendName = $("select[name='BrendName']").val();
-            filter.ModelName = $("select[name='ModelName']").val();
-            filter.StartYear = $("select[name='StartYear']").val();
-            filter.EndYear = $("select[name='EndYear']").val();
+                filter.IsNew = $("select[name='IsNew']").val();
+                filter.BodyType = $("select[name='BodyType']").val();
+                filter.BrendName = $("select[name='BrendName']").val();
+                filter.ModelName = $("select[name='ModelName']").val();
+                filter.StartYear = $("select[name='StartYear']").val();
+                filter.EndYear = $("select[name='EndYear']").val();
 
-                $.ajax({
-                    type: 'GET',
-                    url: '@Url.Content("~/Car/GetCarRedirect")',
-                    data: filter,
-                    success: function (data) {
-                        alert("succses")
-                    },
-                    error: function (data) {
-                        alert(data.responseText)
-                    }
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Content("~/Car/GetCarRedirect")',
+                        data: filter,
+                        success: function (data) {
+                            alert("succses")
+                        },
+                        error: function (data) {
+                            alert(data.responseText)
+                        }
+                    });
                 });
-            });
-    </script>
-}*@
+        </script>
+    }*@
 
 
