@@ -1,14 +1,146 @@
 ﻿@model List<Domain.Model.Car>
+
+
+    <style>
+
+
+
+
+        .outer {
+            margin: 20px auto;
+            position: relative;
+            background-color: rgba(30,30,30,0.2);
+            height: 250px;
+            width: 450px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        img {
+            position: absolute;
+            top: 0px;
+            right: -20px;
+            z-index: 0;
+            animation-delay: 0.5s;
+        }
+
+        .content {
+            animation-delay: 0.3s;
+            position: absolute;
+            left: 20px;
+            z-index: 3
+        }
+
+        h1 {
+            color: #111;
+            margin-top: 5%
+        }
+
+        p {
+            width: 280px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: rgba(22, 12, 50, 0.5);
+            margin: 20px 0;
+        }
+
+        .bg {
+            display: inline-block;
+            color: #fff;
+            background: #239B7D;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: .7em;
+        }
+
+        .button {
+            width: fit-content;
+            height: fit-content;
+            margin-top: 10px;
+            margin-left: 50px;
+        }
+
+            .button a {
+                display: inline-block;
+                overflow: hidden;
+                position: relative;
+                font-size: 11px;
+                color: #331C78;
+                text-decoration: none;
+                padding: 10px 15px;
+                border: 1px solid rgba(22, 12, 50, 0.5);
+                font-weight: bold;
+            }
+
+                .button a:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: -10px;
+                    width: 0%;
+                    background: #239B7D;
+                    height: 100%;
+                    z-index: -1;
+                    transition: width 0.3s ease-in-out;
+                    transform: skew(-25deg);
+                    transform-origin: right;
+                }
+
+                .button a:hover:after {
+                    width: 150%;
+                    left: -10px;
+                    transform-origin: left;
+                }
+
+                .button a:hover {
+                    color: #fff;
+                    transition: all 0.5s ease;
+                }
+
+
+                .button a:nth-of-type(1) {
+                    border-radius: 50px 0 0 50px;
+                    border-right: none;
+                }
+
+                .button a:nth-of-type(2) {
+                    border-radius: 0px 50px 50px 0;
+                }
+
+        .cart-icon {
+            padding-right: 8px;
+        }
+    </style>
+
 @foreach (var car in Model)
 {
-    <div class="col-md-3">
-        <img src="asd" @*@car.ImagePathes.First()*@ />
-        <h2>@car.CarBrend @car.ModelName</h2>
-        <h3>Price: @car.CarPrice $</h3>
-        <h4>Range: @car.RunRange</h4>
-        <p>Fuel: @car.Engine.PetrolType</p>
-        <p>Emgine: @car.Engine.Volume</p>
-        <p>Gear Box: @car.GearBoxType</p>
-        <p>Driverian: @car.DriverianType</p>
-    </div>
-}
+    <!--<div class="col-md-3">
+        <img src="asd"--> @*@car.ImagePathes.First()*@
+        <!--/>
+            <h2>@car.CarBrend @car.ModelName</h2>
+            <h3>Price: @car.CarPrice $</h3>
+            <h4>Range: @car.RunRange</h4>
+            <p>Fuel: @car.Engine.PetrolType</p>
+            <p>Emgine: @car.Engine.Volume</p>
+            <p>Gear Box: @car.GearBoxType</p>
+            <p>Driverian: @car.DriverianType</p>
+        </div>-->
+        <div class="wrapper">
+            <div class="outer">
+                <div class="content animated fadeInLeft">
+                    <span class="bg animated fadeInDown">EXCLUSIVE</span>
+                    <h1>Foking car</h1>
+                    <p>Just buy dat car i know you want it.</p>
+
+                    <div class="button">
+                        <a href="#">$5.000</a><a class="cart-btn" href="#"><i class="cart-icon ion-bag"></i>ADD TO CART</a>
+                    </div>
+
+                </div>
+                <img src="http://www.clker.com/cliparts/x/c/q/E/L/j/gray-car-top-view-90-hi.png" height="90%" style="margin-right: 70px; margin-top: 2.5%" class="animated fadeInRight">
+            </div>
+
+        </div>
+    }
