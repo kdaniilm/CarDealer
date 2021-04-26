@@ -21,7 +21,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         }
         [HttpGet]
         public async Task<ActionResult> BiggestSearch() => await Task.Run(() => View());
-
         [HttpPost]
         public async Task<ActionResult> GetCarPartialAsync(FilterViewModel filter)
         {

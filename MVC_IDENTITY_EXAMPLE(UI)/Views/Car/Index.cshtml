@@ -185,8 +185,6 @@
     }
 </style>
 
-@*@using (Html.BeginForm("Index", "Car", FormMethod.Post))
-{*@
 <form>
     <div class="row">
         <div class="col" style="width:19%; background-color: rgba(30,30,30,0.1); border-radius: 12px">
@@ -232,9 +230,7 @@
         </div>
         <div style="width:81%; text-align: center;">
             <h4>Cars</h4>
-            <div id="AllCarsDivId" class="row">
-
-            </div>
+            <div id="AllCarsDivId" class="row"></div>
         </div>
     </div>
 </form>

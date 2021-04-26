@@ -386,6 +386,7 @@
                         url: '@Url.Content("~/Car/GetCarPartial")',
                         data: filter,
                         success: function (data) {
+                            window.location.href = '@Url.Action("Index", "Car")';
                             $("#AllCarsDivId").html(data);
                         },
                         error: function (data) {
