@@ -14,7 +14,9 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         [Required]
         public decimal CarPrice { get; set; }
         [Required]
-        public int RunRange { get; set; }
+        public int RunRange { get; set; } 
+        [Required]
+        public int ProductionYear { get; set; }
         [Required]
         public string CarBrend { get; set; }
         [Required]

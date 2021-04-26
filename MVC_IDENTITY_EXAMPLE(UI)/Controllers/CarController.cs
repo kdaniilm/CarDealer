@@ -6,8 +6,6 @@ using MVC_IDENTITY_EXAMPLE_UI_.Models;
 using AutoMapper;
 using Domain.Model;
 using Microsoft.AspNetCore.Authorization;
-using Newtonsoft.Json;
-using System;
 
 namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 {

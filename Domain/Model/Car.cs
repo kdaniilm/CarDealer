@@ -13,6 +13,7 @@ namespace Domain.Model
         public bool IsNew { get; set; }
         public decimal CarPrice { get; set; }
         public int RunRange { get; set; }
+        public int ProductionYear { get; set; }
         public string ModelName { get; set; }
         public string CarBrend { get; set; }
         public string CreateCountryName { get; set; }

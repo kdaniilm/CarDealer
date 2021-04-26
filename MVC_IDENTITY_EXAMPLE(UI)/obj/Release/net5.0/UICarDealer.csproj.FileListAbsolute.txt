@@ -443,3 +443,4 @@ C:\Users\User\Documents\GitHub\CarDealer\MVC_IDENTITY_EXAMPLE(UI)\obj\Release\ne
 C:\Users\User\Documents\GitHub\CarDealer\MVC_IDENTITY_EXAMPLE(UI)\obj\Release\net5.0\ref\UICarDealer.dll
 C:\Users\User\Documents\GitHub\CarDealer\MVC_IDENTITY_EXAMPLE(UI)\obj\Release\net5.0\UICarDealer.pdb
 C:\Users\User\Documents\GitHub\CarDealer\MVC_IDENTITY_EXAMPLE(UI)\obj\Release\net5.0\UICarDealer.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\CarDealer\MVC_IDENTITY_EXAMPLE(UI)\obj\Release\net5.0\Razor\Views\Car\BiggestSearch.cshtml.g.cs

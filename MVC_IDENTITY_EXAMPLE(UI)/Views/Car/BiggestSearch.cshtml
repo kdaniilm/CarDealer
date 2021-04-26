@@ -29,7 +29,7 @@
 
     form {
         margin: 4% auto;
-        width:120%;
+        width: 120%;
         margin-left: -10%;
         padding: 10px 20px;
         background: #D3C8F5;
@@ -97,9 +97,11 @@
             width: 280px !important;
             border-color: #239B7D !important;
         }
+
     input[type="number"] {
         height: 40px !important;
     }
+
     input[type="radio"],
     input[type="checkbox"] {
         margin-top: 3%;
@@ -207,8 +209,7 @@
 
 
 
-@using (Html.BeginForm("Create", "Car", FormMethod.Post))
-{
+<form>
 
     <div class="row" style="display:flex; text-align:center">
         <div style="width:25%;display:flex; justify-content:space-around">
@@ -228,16 +229,17 @@
 
         <fieldset>
 
-
-
-
-
             <h5>Price:</h5>
             <input type="number" name="MinPrice" placeholder="Min Price" />
             <input type="number" name="MaxPrice" placeholder="Max Price" />
 
 
-            <input type="checkbox" value="true" name="isNew"><label class="light">New Car</label><br>
+            <select name="IsNew">
+                <option selected value="null">All statuses</option>
+                <option value="true">New</option>
+                <option value="false">Used</option>
+            </select>
+
             <h5>Range:</h5>
 
             <input type="number" name="MinRange" placeholder="Min Range" />
@@ -253,7 +255,7 @@
                 <option value="Japan">Japan</option>
                 <option value="Germany">Germany</option>
             </select>
-            <select id="brend" name="CarBrend">
+            <select id="brend" name="BrendName">
                 <option selected value="null">All brands</option>
 
                 <option value="Audi">Audi</option>
@@ -334,9 +336,63 @@
             <input type="checkbox" id="SaveList" value="true" name="IsHaveSleepingCheck"><label class="light" for="design">Sleeping check</label><br>
         </fieldset>
     </div>
-    <input type="submit"  value="Search">
-}
+    <input id="SearchBtnId" type="button" value="Search">
+</form>
 
 @section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script>
+            var filter = new Object();
+            $('#SearchBtnId').click(function () {
+
+                filter.IsNew = $("select[name='IsNew']").val();
+                filter.MinPrice = $("input[name='MinPrice']").val();
+                filter.MaxPrice = $("input[name='MaxPrice']").val();
+                filter.MinRange = $("input[name='MinRange']").val();
+                filter.MaxRange = $("input[name='MaxRange']").val();
+                filter.CreateCountryName = $("select[name='CreateCountryName']").val();
+                filter.BrendName = $("select[name='BrendName']").val();
+                filter.ModelName = $("select[name='ModelName']").val();
+                filter.GearBoxType = $("select[name='GearBoxType']").val();
+                filter.DriverianType = $("select[name='DriverianType']").val();
+                filter.PetrolType = $("select[name='PetrolType']").val();
+                filter.BodyType = $("select[name='BodyType']").val();
+                @*Configuration*@
+                filter.IsHaveCondicioner = $("input[name='IsHaveCondicioner']").is(":checked");
+                filter.IsHaveSeatsHeating = $("input[name='IsHaveSeatsHeating']").is(":checked");
+                filter.IsHaveCruiseControl = $("input[name='IsHaveCruiseControl']").is(":checked");
+                filter.IsHaveGarageSaving = $("input[name='IsHaveGarageSaving']").is(":checked");
+                filter.IsHaveDontHit = $("input[name='IsHaveDontHit']").is(":checked");
+                filter.IsHaveFirstOwner = $("input[name='IsHaveFirstOwner']").is(":checked");
+                filter.IsHaveMp3 = $("input[name='IsHaveMp3']").is(":checked");
+                filter.IsHaveSubbufer = $("input[name='IsHaveSubbufer']").is(":checked");
+                filter.IsHaveAirBags = $("input[name='IsHaveAirBags']").is(":checked");
+                filter.IsHaveSleepingCheck = $("input[name='IsHaveSleepingCheck']").is(":checked");
+                @*EndConfiguration*@
+                filter.DoorsCount = $("input[name='DoorsCount']").val();
+                filter.CityСonsumption = $("input[name='CityСonsumption']").val();
+                filter.AutobanСonsumption = $("input[name='AutobanСonsumption']").val();
+                filter.MidleСonsumption = $("input[name='MidleСonsumption']").val();
+                filter.MaxPower = $("input[name='MaxPower']").val();
+                filter.MaxTorque = $("input[name='MaxTorque']").val();
+                filter.StartYear = $("input[name='StartYear']").val();
+                filter.EndYear = $("input[name='EndYear']").val();
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/Car/GetCarPartial")',
+                        data: filter,
+                        success: function (data) {
+                            $("#AllCarsDivId").html(data);
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+                });
+        </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

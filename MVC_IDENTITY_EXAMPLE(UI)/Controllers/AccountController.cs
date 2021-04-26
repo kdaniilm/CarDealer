@@ -53,7 +53,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
                 new { guid = token, userEmail = user.Email }, Request.Scheme, Request.Host.Value);
             await _emailSender.SendEmailAsync(user.Email, "Link ->>>", link);
 
-            return Redirect("/home/index");
+            return RedirectToAction("Index", "Car");
 
         }
 
@@ -70,7 +70,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Book");
+                return RedirectToAction("Index", "Car");
             }
             return StatusCode(500);
 

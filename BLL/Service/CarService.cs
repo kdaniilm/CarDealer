@@ -39,12 +39,54 @@ namespace BLL.Service
         }
         public async Task<List<Car>> GetAllCarsAsync(FilterDto filter)
         {
-            var car = _carContext.Cars.Include(x => x.Engine);
+            var car = _carContext.Cars.Include(x => x.Engine).Where(x => x.Id > 0);
             if (filter.IsNew != null)
-                car = car.Where(x => x.IsNew == filter.IsNew).Include(x => x.Engine);
+                car = car.Where(x => x.IsNew == filter.IsNew);
+            if (filter.MinPrice != 0)
+                car = car.Where(x => x.CarPrice >= filter.MinPrice);
+            if(filter.MaxPrice != 0)
+                car = car.Where(x => x.CarPrice <= filter.MaxPrice);
+            if (filter.MinRange != 0)
+                car = car.Where(x => x.RunRange >= filter.MinRange);
+            if (filter.MaxRange != 0)
+                car = car.Where(x => x.RunRange <= filter.MaxRange);
+            if (filter.CreateCountryName != "null")
+                car = car.Where(x => x.CreateCountryName == filter.CreateCountryName);
+            if (filter.BrendName != "null")
+                car = car.Where(x => x.CarBrend == filter.BrendName);
+            if (filter.ModelName != "null")
+                car = car.Where(x => x.ModelName == filter.ModelName);
+            if (filter.GearBoxType != "null")
+                car = car.Where(x => x.GearBoxType == filter.GearBoxType);
+            if (filter.DriverianType != "null")
+                car = car.Where(x => x.DriverianType == filter.DriverianType);
+            if (filter.PetrolType != "null")
+                car = car.Where(x => x.Engine.PetrolType == filter.PetrolType);
+            if (filter.BodyType != "null")
+                car = car.Where(x => x.BodyType == filter.BodyType);
+            if (filter.DoorsCount != 0)
+                car = car.Where(x => x.DoorsCount == filter.DoorsCount);
+            if (filter.CityСonsumption != 0)
+                car = car.Where(x => x.Engine.CityСonsumption == filter.CityСonsumption);
+            if (filter.AutobanСonsumption != 0)
+                car = car.Where(x => x.Engine.AutobanСonsumption == filter.AutobanСonsumption);
+            if (filter.MidleСonsumption != 0)
+                car = car.Where(x => x.Engine.MidleСonsumption == filter.MidleСonsumption);
+            if (filter.MaxPower != 0)
+                car = car.Where(x => x.Engine.MaxPower == filter.MaxPower);
+            if(filter.MaxTorque != 0)
+                car = car.Where(x => x.Engine.MaxTorque == filter.MaxTorque);
+            if (filter.StartYear != 0)
+                car = car.Where(x => x.ProductionYear >= filter.StartYear);
+            if (filter.EndYear != 0)
+                car = car.Where(x => x.ProductionYear <= filter.EndYear);
 
-            if (filter.BodyType != "All")
-                car = car.Where(x => x.BodyType == filter.BodyType).Include(x => x.Engine);
+            //ConfigurationFilter start
+            car = car.Where(x => x.IsHaveCondicioner == filter.IsHaveCondicioner && x.IsHaveSeatsHeating == filter.IsHaveSeatsHeating
+                    && x.IsHaveCruiseControl == filter.IsHaveCruiseControl && x.IsHaveGarageSaving == filter.IsHaveGarageSaving && x.IsHaveDontHit == filter.IsHaveDontHit
+                    && x.IsHaveFirstOwner == filter.IsHaveFirstOwner && x.IsHaveMp3 == filter.IsHaveMp3 && x.IsHaveSubbufer == filter.IsHaveSubbufer && x.IsHaveAirBags == filter.IsHaveAirBags
+                    && x.IsHaveSleepingCheck == filter.IsHaveSleepingCheck);
+            //ConfigurationFilter End
 
 
             var res = await car.ToListAsync();
