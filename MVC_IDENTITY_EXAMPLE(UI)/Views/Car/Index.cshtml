@@ -227,7 +227,12 @@
         </div>
         <div style="width:81%; text-align: center;">
             <h4>Cars</h4>
-            <div id="AllCarsDivId" class="row"></div>
+            <div id="AllCarsDivId" class="row">
+                @if(Model != null)
+                {
+                    Html.RenderPartial("GetCarPartial", Model);
+                }
+            </div>
         </div>
     </div>
 </form>
@@ -251,9 +256,10 @@
                         type: 'POST',
                         url: '@Url.Content("~/Car/GetCarPartial")',
                         data: filter,
-                        success: function (data) {
-                            $("#AllCarsDivId").html(data);
-                        },
+                        //success: function (data) {
+                        ///*$("#AllCarsDivId").html(data);*/
+                        //    alert(data.responseText);
+                        //},
                         error: function (data) {
                             alert(data.responseText);
                         }

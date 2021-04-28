@@ -26,7 +26,8 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         {
             var filterDto = _mapper.Map<FilterDto>(filter);
             var cars = await _carService.GetAllCarsAsync(filterDto);
-            return PartialView("GetCarPartial", cars);
+            return View("Index", cars);
+           // return PartialView(cars);
         }
         [HttpGet]
         public async Task<ActionResult> Index() =>  await Task.Run(() => View());
