@@ -28,11 +28,12 @@
     }
 
     form {
-        margin: 4% auto;
+        margin: 2% auto;
         width: 120%;
         margin-left: -10%;
         background: rgba(239, 230, 245,0.9);
         border-radius: 8px;
+        padding: 2%;
     }
 
     h1 {
@@ -208,7 +209,7 @@
 
 
 
-@using(Html.BeginForm("GetCarPartial", "Car", FormMethod.Post))
+@using (Html.BeginForm("GetCarPartial", "Car", FormMethod.Post))
 {
     <div class="row" style="display:flex; text-align:center">
         <div style="width:25%;display:flex; justify-content:space-around">
@@ -360,19 +361,19 @@
                 filter.DriverianType = $("select[name='DriverianType']").val();
                 filter.PetrolType = $("select[name='PetrolType']").val();
                 filter.BodyType = $("select[name='BodyType']").val();-->
-                @*Configuration*@
-                <!--filter.IsHaveCondicioner = $("input[name='IsHaveCondicioner']").is(":checked");
-                filter.IsHaveSeatsHeating = $("input[name='IsHaveSeatsHeating']").is(":checked");
-                filter.IsHaveCruiseControl = $("input[name='IsHaveCruiseControl']").is(":checked");
-                filter.IsHaveGarageSaving = $("input[name='IsHaveGarageSaving']").is(":checked");
-                filter.IsHaveDontHit = $("input[name='IsHaveDontHit']").is(":checked");
-                filter.IsHaveFirstOwner = $("input[name='IsHaveFirstOwner']").is(":checked");
-                filter.IsHaveMp3 = $("input[name='IsHaveMp3']").is(":checked");
-                filter.IsHaveSubbufer = $("input[name='IsHaveSubbufer']").is(":checked");
-                filter.IsHaveAirBags = $("input[name='IsHaveAirBags']").is(":checked");
-                filter.IsHaveSleepingCheck = $("input[name='IsHaveSleepingCheck']").is(":checked");-->
-                @*EndConfiguration*@
-                <!--filter.DoorsCount = $("input[name='DoorsCount']").val();
+@*Configuration*@
+<!--filter.IsHaveCondicioner = $("input[name='IsHaveCondicioner']").is(":checked");
+filter.IsHaveSeatsHeating = $("input[name='IsHaveSeatsHeating']").is(":checked");
+filter.IsHaveCruiseControl = $("input[name='IsHaveCruiseControl']").is(":checked");
+filter.IsHaveGarageSaving = $("input[name='IsHaveGarageSaving']").is(":checked");
+filter.IsHaveDontHit = $("input[name='IsHaveDontHit']").is(":checked");
+filter.IsHaveFirstOwner = $("input[name='IsHaveFirstOwner']").is(":checked");
+filter.IsHaveMp3 = $("input[name='IsHaveMp3']").is(":checked");
+filter.IsHaveSubbufer = $("input[name='IsHaveSubbufer']").is(":checked");
+filter.IsHaveAirBags = $("input[name='IsHaveAirBags']").is(":checked");
+filter.IsHaveSleepingCheck = $("input[name='IsHaveSleepingCheck']").is(":checked");-->
+@*EndConfiguration*@
+<!--filter.DoorsCount = $("input[name='DoorsCount']").val();
                 filter.CityСonsumption = $("input[name='CityСonsumption']").val();
                 filter.AutobanСonsumption = $("input[name='AutobanСonsumption']").val();
                 filter.MidleСonsumption = $("input[name='MidleСonsumption']").val();
@@ -395,5 +396,5 @@
                     });
                 });
         </script>
-    
+
 }-->
