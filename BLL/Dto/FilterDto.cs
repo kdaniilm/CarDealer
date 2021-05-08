@@ -38,7 +38,7 @@ namespace BLL.Dto
         public decimal MidleСonsumption { get; set; }
         public int MaxPower { get; set; }
         public int MaxTorque { get; set; }
-        public int StartYear { get; set; }
-        public int EndYear { get; set; }
+        public int MinYear { get; set; }
+        public int MaxYear { get; set; }
     }
 }

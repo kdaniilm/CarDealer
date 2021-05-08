@@ -50,19 +50,19 @@ namespace BLL.Service
                 car = car.Where(x => x.RunRange >= filter.MinRange);
             if (filter.MaxRange != 0)
                 car = car.Where(x => x.RunRange <= filter.MaxRange);
-            if (filter.CreateCountryName != "null")
+            if (filter.CreateCountryName != "null" && filter.CreateCountryName != null) 
                 car = car.Where(x => x.CreateCountryName == filter.CreateCountryName);
-            if (filter.BrendName != "null")
+            if (filter.BrendName != "null" && filter.BrendName != null)
                 car = car.Where(x => x.CarBrend == filter.BrendName);
-            if (filter.ModelName != "null")
+            if (filter.ModelName != "null" && filter.ModelName != null)
                 car = car.Where(x => x.ModelName == filter.ModelName);
-            if (filter.GearBoxType != "null")
+            if (filter.GearBoxType != "null" && filter.GearBoxType != null)
                 car = car.Where(x => x.GearBoxType == filter.GearBoxType);
-            if (filter.DriverianType != "null")
+            if (filter.DriverianType != "null" && filter.DriverianType != null)
                 car = car.Where(x => x.DriverianType == filter.DriverianType);
-            if (filter.PetrolType != "null")
+            if (filter.PetrolType != "null" && filter.PetrolType != null)
                 car = car.Where(x => x.Engine.PetrolType == filter.PetrolType);
-            if (filter.BodyType != "null")
+            if (filter.BodyType != "null" && filter.BodyType != null)
                 car = car.Where(x => x.BodyType == filter.BodyType);
             if (filter.DoorsCount != 0)
                 car = car.Where(x => x.DoorsCount == filter.DoorsCount);
@@ -76,10 +76,10 @@ namespace BLL.Service
                 car = car.Where(x => x.Engine.MaxPower == filter.MaxPower);
             if(filter.MaxTorque != 0)
                 car = car.Where(x => x.Engine.MaxTorque == filter.MaxTorque);
-            if (filter.StartYear != 0)
-                car = car.Where(x => x.ProductionYear >= filter.StartYear);
-            if (filter.EndYear != 0)
-                car = car.Where(x => x.ProductionYear <= filter.EndYear);
+            if (filter.MinYear != 0)
+                car = car.Where(x => x.ProductionYear >= filter.MinYear);
+            if (filter.MaxYear != 0)
+                car = car.Where(x => x.ProductionYear <= filter.MaxYear);
 
             //ConfigurationFilter start
             car = car.Where(x => x.IsHaveCondicioner == filter.IsHaveCondicioner && x.IsHaveSeatsHeating == filter.IsHaveSeatsHeating
