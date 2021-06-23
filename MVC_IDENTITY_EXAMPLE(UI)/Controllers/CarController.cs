@@ -32,6 +32,12 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
             return PartialView("GetCarPartial", cars);
         }
         [HttpGet]
+        public async Task<ActionResult> GetCarAsync(int id)
+        {
+            var car = _carService.GetCarAsync(id);
+            return View(car);
+        }
+        [HttpGet]
         public async Task<ActionResult> Index() =>  await Task.Run(() => View());
 
         [HttpGet]

@@ -40,11 +40,6 @@ namespace MVC_IDENTITY_EXAMPLE_UI_
 
             BllConfiguration.Configuration(services, Configuration.GetConnectionString("defCon"));
 
-            var option = new SendGridOptions();
-            Configuration.GetSection("SendGridOptions").Bind(option);
-            services.AddTransient<SendGridOptions>(x=> option);
-            //services.AddTransient(typeof(SendGridOptions));
-            
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<EmailConfirmationProviderOption>(op => op.TokenLifespan = TimeSpan.FromHours(2));
 
