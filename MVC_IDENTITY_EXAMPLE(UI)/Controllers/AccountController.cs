@@ -33,30 +33,32 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         {
             if (!TryValidateModel(model)) return StatusCode(500);
 
-            var user = new User() { Email = model.Login, UserName = model.Login };
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (!result.Succeeded) return StatusCode(500);
-
-            if (await _roleManager.FindByNameAsync("user") == null)
+            if (model.Password == model.RepeatPassword)
             {
-                var role = await _roleManager.CreateAsync(new Role() { Name = "user" });
-                if (role.Succeeded)
-                    await _userManager.AddToRoleAsync(user, "user");
+                var user = new User() { Email = model.Login, UserName = model.Login };
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (!result.Succeeded) return StatusCode(500);
+
+                if (await _roleManager.FindByNameAsync("user") == null)
+                {
+                    var role = await _roleManager.CreateAsync(new Role() { Name = "user" });
+                    if (role.Succeeded)
+                        await _userManager.AddToRoleAsync(user, "user");
+                }
+                else await _userManager.AddToRoleAsync(user, "user");
+
+                await _signInManager.SignInAsync(user, false);
+
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var link = Url.Action("Confirm", "Account",
+                    new { guid = token, userEmail = user.Email }, Request.Scheme, Request.Host.Value);
+                await _emailSender.SendEmailAsync(user.Email, "Please, warificate your email in 'CarDealer' by this link: \r\n", link);
+
+                return Redirect("/home/index");
             }
-            else await _userManager.AddToRoleAsync(user, "user");
-
-            await _signInManager.SignInAsync(user, false);
-
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var link = Url.Action("Confirm", "Account",
-                new { guid = token, userEmail = user.Email }, Request.Scheme, Request.Host.Value);
-            await _emailSender.SendEmailAsync(user.Email, "Link ->>>", link);
-
-            return Redirect("/home/index");
-
+            return StatusCode(500);
         }
-
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl = "") => await Task.Run(() => View());
 

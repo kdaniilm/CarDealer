@@ -17,6 +17,7 @@ namespace BLL.Service
       
        public async Task SendEmailAsync(string userEmail, string subject, string htmlMessage)
        {
+            await Task.Run(() => { 
             MailAddress from = new MailAddress("kdaniilm@gmail.com", "CarDealer");
 
             MailAddress to = new MailAddress(userEmail);
@@ -25,9 +26,9 @@ namespace BLL.Service
 
             message.Subject = "Тест";
 
-            message.Body = subject + htmlMessage;
+            message.Body = subject + "<a href='" + htmlMessage + "'>";
 
-            message.IsBodyHtml = false;
+            message.IsBodyHtml = true;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
 
@@ -35,6 +36,7 @@ namespace BLL.Service
 
             smtp.EnableSsl = true;
             smtp.Send(message);
+            });
         }
     }
 }

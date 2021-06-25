@@ -17,15 +17,6 @@
           font-family: 'Nunito', sans-serif;
           color: #384047;
       }
-
-      form {
-          /*max-width: 300px;
-    margin: 4% auto;
-    padding: 10px 20px;
-    background: #D3C8F5;
-    border-radius: 8px;*/
-      }
-
       h1 {
           margin: 0 0 5% 0;
           text-align: center;
@@ -167,22 +158,6 @@
           max-width: 480px;
       }
 
-      }
-
-
-      /*
-      #239B7D
-      #D3C8F5
-      */
-      /*
-      #160C32  RGB(22, 12, 50)
-      #241455  RGB(36, 20, 85)
-      #331C78  RGB(51, 28, 120)
-      #41239B  RGB(65, 35, 155)
-      #4F2ABF  RGB(79, 42, 191)
-      #633DD6  RGB(99, 61, 214)
-
-      */
 
 
 
@@ -196,9 +171,9 @@
         <span asp-validation-for="Login" class="text-danger"></span>
         <input asp-for="Password" class="form-control" placeholder="Password" />
         <span asp-validation-for="Password" class="text-danger"></span>
-        <input asp-for="City" class="form-control" placeholder="City" />
-        <span asp-validation-for="City" class="text-danger"></span>
-        <input type="submit" name="submit" class="submit action-button" value="Create" />
+        <input asp-for="RepeatPassword" class="form-control" placeholder="Repeat password" />
+        <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+        <input type="submit" name="submit" class="submit action-button" value="Registration" />
     </fieldset>
 }
 

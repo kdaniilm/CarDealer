@@ -12,8 +12,8 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }
-
-        public string City { get; set; }
+        [Required]
+        public string RepeatPassword { get; set; }
 
     }
 }

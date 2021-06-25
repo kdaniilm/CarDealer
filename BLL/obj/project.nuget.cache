@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WfaszrOWj/mFZHLQzSGuK4fDLsfRNGtQ+ehPqgBNj6qBYX5Wgwz6nok+mVpQDAfm7Ih+SR/XsQFH5ptDU3frxA==",
+  "dgSpecHash": "YDcUSiKnaYqJBKKTFFd2lbmySNNrf9ar5NBtRhVa9Z0euiq1FuOvz81UQ9viQ7g2VKSQZ4fF7ZU1cCl7SwZwew==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
@@ -130,12 +130,5 @@
     "C:\\Users\\User\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\User\\Documents\\GitHub\\CarDealer\\BLL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
