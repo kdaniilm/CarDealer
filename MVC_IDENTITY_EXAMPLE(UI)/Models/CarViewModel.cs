@@ -59,16 +59,3 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Models
         #endregion
     }
 }
-/*
- *bool IsNew
- *double CarPrice
- *int RunRange
- *select Brand
- *select Model
- *string ImagePathes
- *checkbox ComfortList
- *checkbox StateList
- *checkbox MultiMediaList
- *checkbox SaveList
- *select Base
- */

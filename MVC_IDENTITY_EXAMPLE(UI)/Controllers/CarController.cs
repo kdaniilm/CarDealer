@@ -35,7 +35,7 @@ namespace MVC_IDENTITY_EXAMPLE_UI_.Controllers
         public async Task<ActionResult> GetCarAsync(int id)
         {
             var car = _carService.GetCarAsync(id);
-            return View(car);
+            return await Task.Run(() => View(car));
         }
         [HttpGet]
         public async Task<ActionResult> Index() =>  await Task.Run(() => View());
